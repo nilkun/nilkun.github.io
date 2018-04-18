@@ -1,0 +1,19 @@
+body {
+	color: #D46A6A;
+	background-color: #550000;
+}
+h1 {
+	color: #AA3939;
+	border-color: #000000;
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 20px 50px;
+}
+img {
+	border: 15px solid rgba(255, 176, 170, 0.5);
+}
+.toppic {
+	text-align:center;
+	border: 2px solid black;
+	border-radius: 20px 50px;
+}
