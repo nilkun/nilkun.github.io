@@ -4,13 +4,14 @@ body {
 	background-color: gray;
 	background-size: cover;
 	font-family: 'Roboto', sans-serif;
+	font-size: 14;
 
 }
 /* @media (max-width: @screen-xs) {
     body{font-size: 5.9vw;}
 } */
 
-@media {
+@media screen and (orientation: portrait){
     body{font-size: 7vw;}
 }
 
@@ -56,7 +57,7 @@ footer a:visited { color: darkgrey; }
 footer a:active { color: orange; }
 footer a:hover { color: black; }
 
-@media {
+@media screen and (orientation: portrait){
     footer{font-size: 7vw;}
 		h5{font-size: 8vw;}
 }
