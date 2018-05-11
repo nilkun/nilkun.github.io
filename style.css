@@ -1,8 +1,17 @@
+
 body {
 	background-image: url("thewall.jpg");
 	background-color: gray;
 	background-size: cover;
+	font-family: 'Roboto', sans-serif;
 
+}
+/* @media (max-width: @screen-xs) {
+    body{font-size: 5.9vw;}
+} */
+
+@media {
+    body{font-size: 7vw;}
 }
 
 #navigation-bar {
@@ -46,6 +55,11 @@ footer a:link { color: grey; }
 footer a:visited { color: darkgrey; }
 footer a:active { color: orange; }
 footer a:hover { color: black; }
+
+@media {
+    footer{font-size: 7vw;}
+		h5{font-size: 8vw;}
+}
 /*
 a:link:hover {background-color:red}
 a:visited:hover */
