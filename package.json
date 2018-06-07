@@ -1,0 +1,23 @@
+{
+  "name": "nilkun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilkun/nilkun.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilkun/nilkun.github.io/issues"
+  },
+  "homepage": "https://github.com/nilkun/nilkun.github.io#readme"
+}

@@ -1,91 +1,118 @@
-<!DOCTYPE html>
 <html>
+	<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Nilkun Online</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Nilkun Online</title>
 </head>
 <body>
-	<div class="container mt-3">
+		<!-- <footer class="page-footer font-small pt-4 mt-4"> -->
+	<!-- <div class="container mt-3"> -->
+	<div class="container-fluid text-center text-md-left">
 		<nav class="row" id="navigation-bar">
-			<a class="navbar-brand" href="http://nilkun.github.io">NILKUN</a>
-			<a class="nav-link" href="#">About me</a>
-			<a class="nav-link" href="#">GitHub projects</a>
-
+			<a class="navbar-brand" href="#">NILKUN</a>
+			<a class="nav-link" id="current-projects" href="#">Current projects</a>
+			<a class="nav-link" id="certificates" href="#">Udemy Certificates</a>
+			<a class="nav-link" id="debugging" href="#">-*-</a>
+			<!-- <a class="nav-link" id="github-repos" href="#">Github Repos</a> -->
+			<!-- <a class="nav-link" id="contact-me" href="#">Contact</a> -->
 		</nav>
-		<div class="row m-1 mt-4" id="main-body">
-			<!-- <div class="main-body"> -->
-			<div class="col-12 col-lg-4 text-center">
-				<p class="topic">
+	</div>
+	<div class="row center container col-12 " id="action-window">
+		<div class="col-12 col-lg-2 text-center">
+				<!-- <p class="topic"> -->
 					<img class="img-responsive" src="https://gravatar.com/avatar/0351bee1b5ca6d4d6d14ec9e4b8c9255?s=200" width=100%><br>
 					Latest stable release of me (me 2.0)
-				</p>
-				<br>
-			</div>
-				<div class="col-12 col-lg-8">
-			<strong>Hello there!</strong>
-			<br>
-			<br>
+				<!-- </p>
+				 --><br>
+		</div>
+		<div class="col-12 col-lg-10">
+			<h5><strong>Hello there!</strong></h5><br>
 			I am a self-taught programmer who also happens to be an avid Arch Linux user and Awesome WM fan. Tautalogically speaking, the Awesome Window Manager is a pretty awesome window manager.
 			<br><br>
 			I speak JavaScript and C++, but I find my way around in other languages as well, with a bit of trial and syntax error.
 
-			I have made some small games in C++ using the SDL library. My proudest creation so far is a clone <strong>(sort of)</strong> of <em>Missile Command</em>.
 			<br><br>
 			This website might be lacking a bit in content.
 			I am currently looking for my first job as a developer, so please be nice and hire me.
-			<br>
 		</div>
 	</div>
-	<footer class="page-footer font-small black pt-4 mt-4">
-    <div class="container-fluid text-center text-md-left">
+	<footer class="page-footer font-small pt-4 mt-4">
+ 	   <div class="container-fluid text-center text-md-left">
 			<h5 class="text-uppercase">Where do I usually hang out?</h5>
-
-	    <div class="row">
-	        <div class="col-lg-6">
+			    <div class="row">
+	    		    <div class="col-lg-6">
 						<p>Here are some sites I admittedly or unadmittedly visit from time to time.</p>
 					</div>
-	        <div class="col-lg-3">
-	            <ul class="list-unstyled">
-	                <li>
-	                    <a href="https://www.github.com">GitHub</a>
-	                </li>
-	                <li>
-	                    <a href="https://www.stackoverflow.com">Stack Overflow</a>
-	                </li>
-	            </ul>
-	        </div>
-					<div class="col-lg-3">
-	            <ul class="list-unstyled">
-	                <li>
-	                    <a href="https://www.gamedev.net">GameDev</a>
-	                </li>
-	                <li>
-	                    <a href="https://wiki.archlinux.org">ArchWiki</a>
-	                </li>
-	            </ul>
-	        </div>
-	        <!--/.Second column-->
-	    </div>
-	</div>
-	    <!--/.Footer Links-->
+			        <div class="col-lg-3">
+			            <ul class="list-unstyled">
+			                <li>
+			                    <a href="https://www.github.com">GitHub</a>
+			                </li>
+			                <li>
+			                    <a href="https://www.stackoverflow.com">Stack Overflow</a>
+			                </li>
+			            </ul>
+			        </div>
+							<div class="col-lg-3">
+			            <ul class="list-unstyled">
+			                <li>
+			                    <a href="https://www.gamedev.net">GameDev</a>
+			                </li>
+			                <li>
+			                    <a href="https://wiki.archlinux.org">ArchWiki</a>
+			                </li>
+			            </ul>
+			        </div>
+			        <!--/.Second column-->
+			    </div>
+			</div>
+			    <!--/.Footer Links-->
 
-	    <!--Copyright-->
-	    <div class="footer-copyright py-3 text-center">
-	        © 2018 Nilkun
-	        <a href="http://nilkun.github.io"> (Visit my GitHub page) </a>
-	    </div>
-	    <!--/.Copyright-->
+			    <!--Copyright-->
+			    <div class="footer-copyright py-3 text-center">
+			    	(c) 2018 Nilkun
+			        <a href="http://nilkun.github.io"> (Visit my GitHub page) </a>
+			    </div>
+			    <!--/.Copyright-->
 
 	</footer>
 
 
-	<!-- </div> -->
+<!-- 	<div class="container">
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Add Meal / Food Item</span>
+				<form class="col">
+					<div class="row">
+						<div class="input-field col s6">
+							<input type = "text" placeholder="Add Item" id="item-name">
+							<label for = "item-name">Meal</label>
+						</div>
+						<div class="input-field col s6">
+							<input type = "number" placeholder="Add Calories" id="item-calories">
+							<label for = "item-calories">Calories</label>
+						</div>
+						<button class="add-btn btn blue darken-3"><i class="fa fa-plus"></i> Add Meal</button>
+						<button class="update-btn btn orange"><i class="fa fa-pencil-square-o"></i> Update Meal</button>
+						<button class="delete-btn btn red"><i class="fa fa-remove"></i> Delete Meal</button>
+						<button class="back-btn btn grey pull-right"><i class="fa fa-chevron-circle-left"></i> Back</button>
+
+					</div>
+				</form>
+			</div>
+		</div>
+ -->
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+	
 </body>
+</html>
 </html>
