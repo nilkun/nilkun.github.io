@@ -43,7 +43,7 @@ const loadCertificates = function() {
 		images+=`<img class="img-responsive" src="assets/diplomas/${file}.jpg" width=30%>`;
 	});
 		const contents = `<div class="col-12">
-		<br><h5><strong>Udemy courses are a great way to spend your time. Here are some courses I have taken:</strong></h5><br>
+		<br><h5><strong>Whenever I need a push in the right direction, I turn to Udemy. Here are some courses I have taken:</strong></h5><br>
 		${images}
 		</div>
 	`;
