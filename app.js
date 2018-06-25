@@ -8,7 +8,7 @@ const loadHome = function() {
 			<h5><strong>Hello there!</strong></h5><br>
 			I am a self-taught programmer who also happens to be an avid Arch Linux user and Awesome WM fan. Tautalogically speaking, the Awesome Window Manager is a pretty awesome window manager.
 			<br><br>I speak JavaScript and C++, but I find my way around in other languages as well, with a bit of trial and syntax error.<br><br>
-			This website might be lacking a bit in content.	I am currently looking for my first job as a developer, so please be nice and hire me.
+			This website might be lacking a bit in content.	I am currently job hunting, so please be nice and hire me.
 		</div>
 		`;
 	document.querySelector("#action-window").innerHTML = contents;
