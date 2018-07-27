@@ -1,1 +1,1 @@
-#nilkun.github.io
+My website written in vanilla JS. (mostly)
