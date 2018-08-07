@@ -1,5 +1,5 @@
 const Portfolio = () => {
-
+    document.getElementById("js-menu").style.display = "none";
 
     const lasers = "img/lasersfromspace.png";
     const altlasers = 'lasers from space';
@@ -17,32 +17,13 @@ const Portfolio = () => {
     const gameEngine = 'img/fantasticlogo.png';
     const altGameEngine = 'the Game Engine with a Fantastic Name';
 
-    changeTitle("ongoing projects")
+    changeTitle("ongoing projects");
     return `
         <div class="flex-container">
             <p>
-                <img class="image rounded" src=${gameEngine} alt=${altGameEngine} width='80px' /> <strong>The Game Engine With a Fantastic Name</strong> <img class="rounded" src="img/cpp.png" alt="C++" height='16px' /> / <img class="rounded" src="img/sdl2.png" />
-                <br/>A game engine with a fantastic name but limited functionality.
+                <strong>These are projects that didn't fit under the other categories. </strong>
             </p>
-
-            <p>
-                <img class="image rounded" src=${lasers} alt=${altlasers} width='80px' /> <strong>Mini-Games</strong> <img class="rounded" src="img/cpp.png" alt="C++" height='16px' />
-                <br/>Games are fun to play around with. I've completed a Missile Command clone-ish game, 
-                available on github.
-            </p>
-
-            <p>
-                <img class="image rounded" src="img/gomi.png" alt=${placeholderText} width='80px' /> <strong>Gomi</strong>
-                <br/>A simple app to keep track of trash days.
-            </p>
-
-            <p>
-                <img class="image rounded" src="img/js.png" alt=${placeholderText} width='80px' /> <strong>JavaScript</strong> <img class="rounded" src="img/js.png" alt="JavaScript" height='16px' />
-                <br/>Everybody needs to know JavaScript these days. 
-                This website is powered by JavaScript. Although it doesn't use too much power.
-                <br/><br/>
-            </p>
-
+                <hr>
             <p>
                 <img class="image rounded" src=${graphics} alt=${graphicsText} width='80px' /> <strong>Graphics Design</strong>
                 <br/>Design is a vast and wonderful subject to study.
@@ -63,13 +44,5 @@ const Portfolio = () => {
                 <br/><br/>
             </p>
 
-            <p>
-                <strong>Finished mini-projects available on Github</strong>
-                <ul>
-                    <li>Sudoku-solver - solves sudoku puzzles <img class="rounded" src="img/cpp.png" alt="C++" height='16px' /></li>
-                    <li>Awesome Textviewer - View textfiles from the Awesome WM <img class="rounded" src="img/lua.png" alt="Lua" height='16px' /></li>
-                    <li>RaceTrack - Simple racing game engine. Has map editor and collision detection. <img class="rounded" src="img/cpp.png" alt="C++" height='16px' /> / <img class="rounded" src="img/sdl2.png" alt="SDL2" height='16px' /></li>
-                </ul>
-            </p>
         </div>
     `};

@@ -1,6 +1,6 @@
 const About = () => {
     changeTitle("my story");
-    
+    document.getElementById("js-menu").style.display = "none";
     return `
     <div class="flex-container">
         <p>
