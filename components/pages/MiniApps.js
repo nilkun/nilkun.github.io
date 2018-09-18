@@ -30,7 +30,7 @@ function MiniApps() {
         <div id="js-window">
             <p><strong>Please click above.</strong>
             <hr></p>
-            These programs were written without any frameworks (or design in mind).
+            This is my JavaScript playground.
         </div>
     `;
 }
