@@ -18,7 +18,7 @@ function loadHeaders() {
     // ADD ALL THE HEADERS HERE AND YOU'RE GOOD TO GO
     addHeader('NILKUN', 'nilkun', About, 'navbar-brand');
     addHeader('JavaScript', 'mini-apps', MiniApps);
-    addHeader('C++', 'cpp', Cpp);
+//     addHeader('C++', 'cpp', Cpp);
     addHeader('Drawings', 'drawings', Drawings);
     // addHeader('Other Projects', 'portfolio', Portfolio);
     
@@ -26,7 +26,7 @@ function loadHeaders() {
 
     AddApps("Ghibli API", "ghibli", Ghibli, 'ghibli');
     AddApps("Simple Drawing", "drawing", Drawing, "drawing");
-    AddApps('Trash day', 'trash', Trash);
+//     AddApps('Trash day', 'trash', Trash);
 
     addListeners(listeners);
 
