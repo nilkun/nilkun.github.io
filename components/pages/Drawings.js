@@ -9,7 +9,7 @@ const Drawings = () => {
     return `
         
         <div class="showdrawings">
-        <p><strong>Some random drawings. I still have plenty to learn.</strong></p><hr>
+        <p><strong>Some random drawings.</strong></p><hr>
             ${drawings}
         </div>
     `;
