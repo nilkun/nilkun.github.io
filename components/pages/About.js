@@ -10,7 +10,7 @@ const About = () => {
         <br>
         <br>
         I'm an avid Arch Linux user and Awesome WM fan, who speaks broken JavaScript and C++, 
-        and get things done with a bit of trial and syntax error. 
+        and get things done with a bit of trial and syntax error. I am passionate about computers, and program daily in order to improve my skills and land my dream job as a developer.
         <br>
         <br>
         The first computer I ever owned was a Zenith Z-181 with two 3.5" floppy-disk drives. I spent a lot of time on it playing Space Quest and typing in BASIC games that never worked. 
@@ -19,7 +19,7 @@ const About = () => {
         Besides computers, I also happen to love making stuff in the real world, be it food or hacking IKEA furniture.
         <br>
         <br>
-        Please don't hesitate to reach out to me if you have any questions (or job offers).
+        Thank you for dropping by!
         </p>
     </div>
     `;
