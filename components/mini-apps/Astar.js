@@ -196,11 +196,11 @@ const grid = {
 
     // MOUSE FUNCTIONS
     mouseClick: function(e) {
-        // fix for scrolling...
-        const offsetX = grid.c.offsetLeft;
-        const offsetY = grid.c.offsetTop;
-        const x = Math.floor((e.clientX - offsetX) /(grid.squareSize+grid.spacing));
-        const y = Math.floor((e.clientY - offsetY) /(grid.squareSize+grid.spacing));
+
+        const offset = grid.c.getBoundingClientRect();
+        const x = Math.floor((e.clientX - offset.left) /(grid.squareSize+grid.spacing));
+        const y = Math.floor((e.clientY - offset.top) /(grid.squareSize+grid.spacing));
+        
         grid.toggleObstacle(x, y);
         grid.calculate();
         grid.render();
