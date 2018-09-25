@@ -19,8 +19,7 @@ const About = () => {
         <br>
         <br>
         Besides computers, I also happen to love making stuff in the real world, be it food or hacking IKEA furniture.
-        <br>
-        <br>
+        
         Thank you for dropping by!
         </p>
     </div>

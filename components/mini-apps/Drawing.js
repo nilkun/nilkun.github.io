@@ -11,7 +11,7 @@ const DrawInit = () => {
 }
 
 const Drawing = {
-    title: 'Simple drawing',
+    title: 'simple drawing',
     drawX: [],
     drawY: [],
     isBeginning: [],

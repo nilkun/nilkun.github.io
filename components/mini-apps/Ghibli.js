@@ -1,6 +1,6 @@
 const Ghibli = {
 
-    title: "Ghibli API",
+    title: "ghibli API",
     
     loadFilms() {
         const xhr = new XMLHttpRequest();

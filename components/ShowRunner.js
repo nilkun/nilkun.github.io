@@ -23,7 +23,7 @@ function loadHeaders() {
     // addHeader('Other Projects', 'portfolio', Portfolio);
     
 
-
+    AddApps('A* pathfinder', "astar", Astar, 'astar');
     AddApps("Ghibli API", "ghibli", Ghibli, 'ghibli');
     AddApps("Simple Drawing", "drawing", Drawing, "drawing");
 //     AddApps('Trash day', 'trash', Trash);
