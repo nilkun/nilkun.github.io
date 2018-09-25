@@ -200,7 +200,7 @@ const grid = {
         const offset = grid.c.getBoundingClientRect();
         const x = Math.floor((e.clientX - offset.left) /(grid.squareSize+grid.spacing));
         const y = Math.floor((e.clientY - offset.top) /(grid.squareSize+grid.spacing));
-        
+
         grid.toggleObstacle(x, y);
         grid.calculate();
         grid.render();
@@ -231,14 +231,14 @@ const grid = {
 
                 // Color path from goal to start
                 this.ctx.fillStyle="#000000";
-                let parentNode = this.node[this.goalIndex].parentNode;
-                while(parentNode !== -1){
+                let currentNode = this.node[this.goalIndex].parentNode;
+                while(currentNode !== -1 && currentNode !== this.startIndex){
                   this.ctx.fillRect(
-                        this.node[parentNode].x * (this.squareSize + this.spacing), 
-                        this.node[parentNode].y * (this.squareSize + this.spacing), 
+                        this.node[currentNode].x * (this.squareSize + this.spacing), 
+                        this.node[currentNode].y * (this.squareSize + this.spacing), 
                         this.squareSize, this.squareSize
                     );
-                    parentNode = this.node[parentNode].parentNode;
+                    currentNode = this.node[currentNode].parentNode;
                 }
             }
         }
