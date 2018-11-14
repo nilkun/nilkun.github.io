@@ -72,38 +72,42 @@ class Router {
     }
 
     goToRoute(html) {
-        const url = 'src/views/' + html;
+        const url = './src/views/' + html;
         const http = new XMLHttpRequest();
+        try {
 
-        http.onreadystatechange = () => {
-            if(http.readyState === 4 && http.status === 200) {
+            http.onreadystatechange = () => {
+                if(http.readyState === 4 && http.status === 200) {
 
 
-                let index = 0;
-                let waitingToLoad = false;
+                    let index = 0;
+                    let waitingToLoad = false;
 
-                // // unload previous scripts
-                unloadScripts(this.scripts);
+                    // // unload previous scripts
+                    unloadScripts(this.scripts);
 
-                // // Check if route has init tags and then extract filename
-                if("<init>" === http.response.slice(0, 6)) {
-                    const regex = /<\/init>/;
-                    index = http.response.match(regex).index;
-                    const scriptString = http.response.slice(6, index);
-                    this.scripts = scriptString.split(/\s+/).filter(x => x);
-                    this.scripts.push(http.response.slice(6, index));
-                    index = http.response.match(regex).index + 7;
-                    waitingToLoad = true;
-                } else this.scripts = [];
+                    // // Check if route has init tags and then extract filename
+                    if("<init>" === http.response.slice(0, 6)) {
+                        const regex = /<\/init>/;
+                        index = http.response.match(regex).index;
+                        const scriptString = http.response.slice(6, index);
+                        this.scripts = scriptString.split(/\s+/).filter(x => x);
+                        this.scripts.push(http.response.slice(6, index));
+                        index = http.response.match(regex).index + 7;
+                        waitingToLoad = true;
+                    } else this.scripts = [];
 
-                this.rootElem.innerHTML = http.responseText.slice(index);
-                if(waitingToLoad) {
-                    loadScripts(this.scripts);
+                    this.rootElem.innerHTML = http.responseText.slice(index);
+                    if(waitingToLoad) {
+                        loadScripts(this.scripts);
+                    }
                 }
-            }
-        };
+            };
+            http.open('GET', url, true);
+            http.send();
+        } catch(e) { 
+            console.log("Caught this little bugger: ", e);
+        }
 
-        http.open('GET', url, true);
-        http.send();
     }
 }
