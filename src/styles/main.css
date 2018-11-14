@@ -1,0 +1,45 @@
+body {
+	background-image: url("../images/background/thewall.jpg");
+	background-color: gray;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14;
+	color: rgba(90, 45, 0, 1);
+	animation: 0.5s fadein 0.1s forwards;
+    opacity: 0;	
+    margin: 0px;
+    padding: 0px;
+
+}
+
+h3 { 
+	color: black;
+	font-size: 16;
+}
+
+/* fade in effect */
+@keyframes fadein {
+	100% {
+		opacity: 1;
+	}
+}
+
+a:hover { 
+    text-decoration: none;
+}
+
+li {           
+    list-style-type: none;
+}
+
+.app {
+	/* margin-bottom: -0.3em; */
+    /* padding-top: 6em; */
+}
+
+/* to not make navbar overlap */
+.padding {
+	height: 5em;
+	width: 100%;
+	background-color: rgba(255, 106, 2, 0.7);
+}

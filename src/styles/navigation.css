@@ -1,0 +1,53 @@
+/* NAVIGATION */
+nav {
+	position: fixed;
+    width: 100%;
+    height: 5em;
+}
+
+#navbar {
+    text-decoration: none;
+	background-color: black;
+    opacity: 0.8;
+    color:rgba(255, 106, 2, 0.75);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* MENU NAVIGATION */
+
+#navigation a:hover {
+    /* background-color: pink; */
+    /* rgba(0, 0, 0, 0.5);  */
+    color: rgba(255, 106, 2, 1);
+    text-decoration: none;
+}
+
+#nav-links {
+    color: rgba(255, 106, 2, 0.75); 
+    display: flex;
+    text-decoration: none;
+    color: orange;
+    
+}
+
+#nav-links li{
+    padding: 1em;
+}
+
+/*  SOCIAL MEDIA LINKS */
+#social-links {
+    display: flex;
+}
+#social-links a:hover {
+    opacity: 0.8;
+}
+#social-media li{
+    padding: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 106, 2, 0.75);
+}
