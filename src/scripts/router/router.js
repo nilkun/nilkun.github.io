@@ -13,12 +13,11 @@ const loadScripts = (scripts) => {
 const unloadScripts = (scripts) => {
     for(let i = 0; i < scripts.length; i++) {
         const target = "minispa" + i;
-        const attr = "src";
 
         const remove = document.getElementById(target);
+        console.log("Removing: ", remove);
         remove.parentElement.removeChild(remove);
-
-        }
+    }
 }
 
 let running = "";
@@ -78,22 +77,23 @@ class Router {
 
             http.onreadystatechange = () => {
                 if(http.readyState === 4 && http.status === 200) {
-
-
                     let index = 0;
                     let waitingToLoad = false;
 
                     // // unload previous scripts
                     unloadScripts(this.scripts);
-
+                    this.scripts = [];
                     // // Check if route has init tags and then extract filename
                     if("<init>" === http.response.slice(0, 6)) {
                         const regex = /<\/init>/;
                         index = http.response.match(regex).index;
-                        const scriptString = http.response.slice(6, index);
-                        this.scripts = scriptString.split(/\s+/).filter(x => x);
+
+                        // const scriptString = http.response.slice(6, index);
+                        // this.scripts = scriptString.split(/\s+/).filter(x => x);
+
                         this.scripts.push(http.response.slice(6, index));
                         index = http.response.match(regex).index + 7;
+
                         waitingToLoad = true;
                     } else this.scripts = [];
 
