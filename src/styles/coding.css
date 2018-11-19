@@ -15,10 +15,37 @@
 
 .coding-menu {
     width : auto;
-    background-color: pink;
+    background-color: black;
+    height: 600px;
 }
 
 .coding-viewport {
+    /* display: flex; */
+    /* align-items: flex-start; */
+    /* flex-direction: row; */
     width: 80%;
-    background-color: green;
+    height: 600px;
+    /* background-color: green; */
+
+  /* position:relative; */
+}
+.coding-screen {
+
+  /* position:absolute; */
+  height: 550px;
+  width: 100%;
+  /* background-color: black; */
+}
+
+.coding-filler {
+    width: 10%;
+    height: 600px;
+    background-color: black;
+}
+
+.frame {
+  /* position:absolute; */
+    height: 25px;
+    width: 100%;
+    background-color: black;
 }
