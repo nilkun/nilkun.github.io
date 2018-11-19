@@ -1,4 +1,4 @@
 import GithubRepos from './scripts/repos.js';
 
-= new GithubRepos;
+const githubRepos = new GithubRepos;
 

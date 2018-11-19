@@ -1,3 +1,3 @@
 import CodingMenu from './scripts/codingMenu.js'
 
-= new CodingMenu;
+const codingMenu = new CodingMenu;

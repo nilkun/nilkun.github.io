@@ -6,7 +6,6 @@ export default class GithubRepos {
 
     load(_callback) {
         const xhr = new XMLHttpRequest();
-        // false = sync
         xhr.open('GET', "https://api.github.com/users/nilkun/repos", true);
         xhr.onload = function() {
             if(this.status===200) {
@@ -21,7 +20,7 @@ export default class GithubRepos {
     }
 
     test(data) {
-        let html = "<ul>";
+        let html = "<strong>Github Repos: </strong><ul>";
         for(let index = 0; index < data.length; index++) {
             html +="<li><a href='"
                 + data[index].html_url

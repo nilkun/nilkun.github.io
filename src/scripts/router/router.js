@@ -99,7 +99,7 @@ class Router {
     }
 
     addPathToImports(data) {
-        console.log("Adding paths to imports.");
+        console.log("Adding path to imports.");
         // REGEX
         const semiColon = /;/;
         const whitespace = /;\s/;
@@ -132,15 +132,18 @@ class Router {
         return new Promise((resolve, reject) => {
             const regex = /=/;
             const regex2 = /;/;
+            const removeConst = data.match(/const/);
 
-            const index = data.match(regex).index;
-            const index2 = data.slice(index + 1).match(regex2).index;
+            const indexOfConst = data.match(removeConst).index;
+            const indexOfEqualSign = data.match(regex).index;
+            const indexOfSemiColon = data.slice(indexOfEqualSign).match(regex2).index;
 
             // give id
             this.routes[this.currentIndex].id = program.length;
 
-            const newOne = data.slice(0, index) + "program.push(" + data.slice(index + 1, index + index2 + 1) + ");" + data.slice(index + index2 + 2);
-            resolve(newOne);
+            const returnData = data.slice(0, indexOfConst) + "program.push(" + data.slice(indexOfEqualSign + 1, indexOfEqualSign + indexOfSemiColon) + ");";
+
+            resolve(returnData);
         })
     }
 
