@@ -44,10 +44,13 @@ class Router {
         console.log("Reloading.");
         this.rootElem = document.querySelector(this.context);
         this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
-        // setTimeout(() => {
-        //     program[this.routes[this.currentIndex].id].init();          
-        // }, 100);
-        this.waitDOM();
+        setTimeout(() => {
+            program[this.routes[this.currentIndex].id].init();          
+        }, 1000);
+        // this.waitDOM();
+        let counter = 0;
+        while(program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
+        console.log("Counter: ", counter);
         program[this.routes[this.currentIndex].id].init(); 
     }
 
@@ -210,11 +213,14 @@ class Router {
             .then(js => this.setupJS(js))
             .then(js => this.runJS(js))
             .then(() => {
-                // setTimeout(() => {
-                //     this.routes[this.currentIndex].isLoaded = true; 
-                //     program[this.routes[this.currentIndex].id].init();          
-                // }, 100);
-                this.waitDOM();
+                setTimeout(() => {
+                    this.routes[this.currentIndex].isLoaded = true; 
+                    program[this.routes[this.currentIndex].id].init();          
+                }, 1000);
+                // this.waitDOM();
+                let counter = 0;
+                while(program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
+                console.log("Counter: ", counter);
                 program[this.routes[this.currentIndex].id].init(); 
             })
             .catch(error => console.log(error));
