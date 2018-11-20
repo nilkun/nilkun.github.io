@@ -11,7 +11,7 @@ export default class L_System {
         // For drawing
         this.line = [];
         this.line[0] = [];
-        this.line[0][0] = new Vector(400, 600);
+        this.line[0][0] = new Vector(110, 380);
 
         this.currentLine = new Vector(0, -1);
         this.memoryBank = [];
@@ -122,7 +122,7 @@ export default class L_System {
 
     create(){
         this.generate(this.sentence, this.rule);
-        text.innerHTML += "<br>" + this.sentence;
+        // text.innerHTML += "<br>" + this.sentence;
         this.turtle();
     
     }

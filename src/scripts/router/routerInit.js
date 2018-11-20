@@ -4,7 +4,7 @@ import { Router, Route } from './router.js';
 {
     const spa = document.createElement('script');
     spa.setAttribute("type","application/javascript");
-    spa.innerHTML = "let router; let program =[];";
+    spa.innerHTML = "let router; let program = new Array(0);";
     document.head.appendChild(spa);
 }
 
@@ -17,6 +17,7 @@ const init = () => {
             new Route('about', view, 'about.html', true),
             new Route('train', '/Train-Simulator/', 'index.html'),
             new Route('maze', '/maze-generator/', 'index.html'),
+            new Route('codepen', view, 'codepen.html'),
             // new Route('coding', view, 'coding.html'),
             new Route('repo', view, 'repo.html')
     ], '.app');

@@ -1,5 +1,7 @@
 'use strict';
 
+// GET RID OF THE SETTIMEOUT CALLS
+
 // ROUTE CLASS
 class Route {
     constructor(name, path, html, defaultRoute = false) {
@@ -20,13 +22,21 @@ class Route {
 }
 
 // ROUTER CLASS AND FUNCTIONS
+
 class Router {
     constructor(routes, context) {
         this.routes = routes;
         this.rootElem = document.querySelector(context);
         this.currentIndex = 0;
         this.context = context;
+
         this.init();
+    }
+    
+    waitDOM() {
+        const fakeCall = () => console.log("This function will be called twice.");
+        const intermediary = () => window.requestAnimationFrame(fakeCall);
+        window.requestAnimationFrame(intermediary);
     }
 
 
@@ -34,15 +44,28 @@ class Router {
         console.log("Reloading.");
         this.rootElem = document.querySelector(this.context);
         this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
+        // setTimeout(() => {
+        //     program[this.routes[this.currentIndex].id].init();          
+        // }, 1000);
+
+        // while(this.currentIndex !== activeProgram) { console.log("not active...")};
+        // program[this.routes[this.currentIndex].id].init();
         const timeout = () => {
             if(program[this.routes[this.currentIndex].id] === undefined) {
                 setTimeout(timeout, 50);
             }
             else {
                 program[this.routes[this.currentIndex].id].init();
+                console.log("DEFINED!!!");
             }
         }
         timeout();
+
+        // this.waitDOM();
+        // let counter = 0;
+        // while(typeof program[this.routes[this.currentIndex].id] === 'undefined') { counter++};
+        // console.log("Counter: ", counter);
+        // program[this.routes[this.currentIndex].id].init(); 
     }
 
     getData(html) {
@@ -89,7 +112,12 @@ class Router {
                 returnData = this.routes[this.currentIndex].path + final;
                 this.routes[this.currentIndex].script = final;
 
+                // ADDING A CLASS TO HTML find body
+                // this.routes[this.currentIndex].innerHTML = "<div class='mini-spa-" + this.routes[this.currentIndex].id + ">" + srcIndex + afterScript + "</div>";
                 this.routes[this.currentIndex].innerHTML =  srcIndex;
+// "<div>"
+                    // + "<img src='./src/images/logos/empty.png' onload='activeProgram=" + this.currentIndex + ";this.parentNode.removeChild(this);' /></div>";
+                // + afterScript;
                 this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
             } else {
                 this.rootElem.innerHTML = data;
@@ -144,7 +172,7 @@ class Router {
             const indexOfEqualSign = data.match(regex).index;
             const indexOfSemiColon = data.slice(indexOfEqualSign).match(regex2).index;
 
-            const returnData = data.slice(0, indexOfConst) + "program.push(" + data.slice(indexOfEqualSign + 1, indexOfEqualSign + indexOfSemiColon) + ");";
+            const returnData = data.slice(0, indexOfConst) + "console.log('pushing program'); program.push(" + data.slice(indexOfEqualSign + 1, indexOfEqualSign + indexOfSemiColon) + ");";
 
             resolve(returnData);
         })
@@ -156,7 +184,14 @@ class Router {
             let js = document.createElement('script');
             js.setAttribute("type","module");
             js.innerHTML = data;
-            if (typeof js!="undefined") document.getElementsByTagName("head")[0].appendChild(js); 
+            // js.async = true;
+            js.addEventListener('load', function (e) { resolve(data); }, false);
+            if (typeof js!="undefined") { 
+                let loaded = document.getElementsByTagName("head")[0];
+                // loaded.addEventListener('load', function (e) { console.log("hey"); resolve(data); }, false);
+                loaded.appendChild(js); 
+                loaded.offsetHeight;
+            }
             resolve(data);
         })
     }
@@ -165,6 +200,7 @@ class Router {
         window.addEventListener('hashchange', (e) => {
             this.hasChanged();
         });
+
         this.hasChanged();
     }
 
@@ -204,16 +240,36 @@ class Router {
             .then(js => this.runJS(js))
             .then(() => {
                 console.log("Wrapping up...");
+                // setTimeout(() => {
+                //     this.routes[this.currentIndex].isLoaded = true; 
+                //     program[this.routes[this.currentIndex].id].init();          
+                // }, 1000);
+                // console.log("current and active ", this.currentIndex, activeProgram);
+                // this.routes[this.currentIndex].innerHTML += "<img src='./src/images/logos/empty.png' onload='console.log(program[0], router.routes[router.currentIndex].id); this.parentNode.removeChild(this);' />";
+                    // + this.routes + "[+ " + this.currentIndex +"].id].init()';this.parentNode.removeChild(this);' /></div>";[router.routes[router.currentIndex].id].init()\"HEY: \", program[" + router.routes[router.currentIndex].id + "]
+                    //router.routes[router.currentIndex].id
                 this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
+                // while(program[0] === undefined) { console.log("party");}
                 const timeout = () => {
                     if(program[this.routes[this.currentIndex].id] === undefined) {
                         setTimeout(timeout, 50);
                     }
                     else {
                         program[this.routes[this.currentIndex].id].init();
+                        console.log("DEFINED!!!");
                     }
                 }
                 timeout();
+                // program[this.routes[this.currentIndex].id].init();
+                // while(this.currentIndex !== activeProgram) { console.log("not active...")};
+                // program[this.routes[this.currentIndex].id].init();
+                // console.log("failed?");
+
+                // this.waitDOM();
+                // let counter = 0;
+                // while(typeof program[this.routes[this.currentIndex].id] === 'undefined') { counter++};
+                // console.log("Counter: ", counter);
+                // program[this.routes[this.currentIndex].id].init(); 
             })
             .catch(error => console.log(error));
         }
@@ -222,3 +278,7 @@ class Router {
 }
 
 export { Route, Router };
+
+// if(loadedScriptID === script id) then runJS
+
+{/* <img src="empty.gif" onload="alert('test');this.parentNode.removeChild(this);" /> */}
