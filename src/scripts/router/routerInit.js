@@ -15,9 +15,10 @@ const init = () => {
     // routes and target
     router = new Router([
             new Route('about', view, 'about.html', true),
-            new Route('coding', view, 'coding.html'),
+            new Route('train', '/Train-Simulator/', 'index.html'),
+            // new Route('coding', view, 'coding.html'),
             new Route('repo', view, 'repo.html'),
-            new Route('test', '/maze-generator/', 'index.html')
+            new Route('maze', '/maze-generator/', 'index.html')
     ], '.app');
 }
 
