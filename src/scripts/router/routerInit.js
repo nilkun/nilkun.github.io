@@ -16,9 +16,9 @@ const init = () => {
     router = new Router([
             new Route('about', view, 'about.html', true),
             new Route('train', '/Train-Simulator/', 'index.html'),
+            new Route('maze', '/maze-generator/', 'index.html'),
             // new Route('coding', view, 'coding.html'),
-            new Route('repo', view, 'repo.html'),
-            new Route('maze', '/maze-generator/', 'index.html')
+            new Route('repo', view, 'repo.html')
     ], '.app');
 }
 
