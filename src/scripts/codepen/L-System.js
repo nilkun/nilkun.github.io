@@ -26,6 +26,12 @@ export default class L_System {
 
         // tree
         this.rule.push(this.createRule("F", "FF+[+F-F-F]-[-F+F+F]"));
+        this.line = [];
+        this.line[0] = [];
+        this.line[0][0] = new Vector(110, 380);
+
+        this.currentLine = new Vector(0, -1);
+        this.memoryBank = [];
     
         this.turtle();
     }

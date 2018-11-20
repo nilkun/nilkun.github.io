@@ -2,6 +2,8 @@ export default class Viewport {
     constructor(width = 800, height = 600) {
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext("2d");
+        this.width = width;
+        this.height = height;
         this.canvas.width = width;
         this.canvas.height = height;
     }
@@ -23,5 +25,11 @@ export default class Viewport {
     getMouse(event) {
         const rect = this.canvas.getBoundingClientRect();
         return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    }
+    refetch() {
+        this.canvas = document.getElementById("canvas");
+        this.context = this.canvas.getContext("2d");
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;        
     }
 }

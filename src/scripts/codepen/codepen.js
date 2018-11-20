@@ -19,8 +19,13 @@ export default class AlgoMenu {
         // CONSTANTS TO HANDLE INPUT AND OUTPUT
         this.button = document.getElementById("btn");
         this.button.addEventListener('click', this.bindPlay);
+        this.viewport.refetch();
+        this.viewport.init();
 
+        this.running.renderer = this.viewport.context;
+        
         this.running.init();
+
     }
 }
 

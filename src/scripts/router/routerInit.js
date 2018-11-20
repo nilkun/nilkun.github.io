@@ -4,7 +4,7 @@ import { Router, Route } from './router.js';
 {
     const spa = document.createElement('script');
     spa.setAttribute("type","application/javascript");
-    spa.innerHTML = "let router; let program = new Array(0);";
+    spa.innerHTML = "let router; let program = new Array(0);let loadedHTMLid=-1;";
     document.head.appendChild(spa);
 }
 

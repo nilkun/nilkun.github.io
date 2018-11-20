@@ -35,10 +35,12 @@ class Router {
         this.rootElem = document.querySelector(this.context);
         this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
         const timeout = () => {
-            if(program[this.routes[this.currentIndex].id] === undefined) {
+            if(loadedHTMLid !==this.routes[this.currentIndex].id) {
+                console.log("lh1: ", loadedHTMLid);
                 setTimeout(timeout, 50);
             }
             else {
+                console.log("lh: ", loadedHTMLid, this.routes[this.currentIndex].id);
                 program[this.routes[this.currentIndex].id].init();
             }
         }
@@ -82,14 +84,14 @@ class Router {
                 const srcIndex = data.slice(0, tag.index);
                 const closeTag = /<\/script/;
                 const closeIndex = closeTag.exec(data.slice(tag.index)).index;                
-                const afterScript = data.slice(tag.index + closeIndex + 9);
+                // const afterScript = data.slice(tag.index + closeIndex + 9);
                 const sourceID = data.slice(tag.index, tag.index + closeIndex - 2);
                 const sID = sourceID.slice(srcTag.exec(sourceID).index);                
                 const final = sID.slice(/"|'/.exec(sID).index + 1);
                 returnData = this.routes[this.currentIndex].path + final;
                 this.routes[this.currentIndex].script = final;
 
-                this.routes[this.currentIndex].innerHTML =  srcIndex;
+                this.routes[this.currentIndex].innerHTML =  srcIndex + "<img src='./src/images/logos/empty.png' onload='console.log(\"loaded: \", loadedHTMLid); loadedHTMLid=" + this.routes[this.currentIndex].id + ";this.parentNode.removeChild(this);' />";
                 this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
             } else {
                 this.rootElem.innerHTML = data;
@@ -204,6 +206,7 @@ class Router {
             .then(js => this.runJS(js))
             .then(() => {
                 console.log("Wrapping up...");
+                this.routes[this.currentIndex].isLoaded = true;
                 // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
                 // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML+ "<img src='./src/images/logos/empty.png' onload='console.log(\"ok\");";
                 // + "const timeout = () => {if(program[router.routes[router.currentIndex].id] === undefined) {setTimeout(timeout, 50);}";
