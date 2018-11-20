@@ -49,7 +49,7 @@ class Router {
         }, 1000);
         // this.waitDOM();
         let counter = 0;
-        while(program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
+        while(typeof program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
         console.log("Counter: ", counter);
         program[this.routes[this.currentIndex].id].init(); 
     }
@@ -219,7 +219,7 @@ class Router {
                 }, 1000);
                 // this.waitDOM();
                 let counter = 0;
-                while(program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
+                while(typeof program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
                 console.log("Counter: ", counter);
                 program[this.routes[this.currentIndex].id].init(); 
             })
