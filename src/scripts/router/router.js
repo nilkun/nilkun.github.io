@@ -204,7 +204,11 @@ class Router {
             .then(js => this.runJS(js))
             .then(() => {
                 console.log("Wrapping up...");
-                this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
+                // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
+                // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML+ "<img src='./src/images/logos/empty.png' onload='console.log(\"ok\");";
+                // + "const timeout = () => {if(program[router.routes[router.currentIndex].id] === undefined) {setTimeout(timeout, 50);}";
+                // + "else {program[router.routes[router.currentIndex].id].init();}} timeout();console.log(\"ok\");this.parentNode.removeChild(this);' />"
+
                 const timeout = () => {
                     if(program[this.routes[this.currentIndex].id] === undefined) {
                         setTimeout(timeout, 50);
