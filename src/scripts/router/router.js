@@ -48,10 +48,10 @@ class Router {
             program[this.routes[this.currentIndex].id].init();          
         }, 1000);
         // this.waitDOM();
-        let counter = 0;
-        while(typeof program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
-        console.log("Counter: ", counter);
-        program[this.routes[this.currentIndex].id].init(); 
+        // let counter = 0;
+        // while(typeof program[this.routes[this.currentIndex].id] === 'undefined') { counter++};
+        // console.log("Counter: ", counter);
+        // program[this.routes[this.currentIndex].id].init(); 
     }
 
     getData(html) {
@@ -218,10 +218,10 @@ class Router {
                     program[this.routes[this.currentIndex].id].init();          
                 }, 1000);
                 // this.waitDOM();
-                let counter = 0;
-                while(typeof program[this.routes[this.currentIndex].id].init() === 'undefined') { counter++};
-                console.log("Counter: ", counter);
-                program[this.routes[this.currentIndex].id].init(); 
+                // let counter = 0;
+                // while(typeof program[this.routes[this.currentIndex].id] === 'undefined') { counter++};
+                // console.log("Counter: ", counter);
+                // program[this.routes[this.currentIndex].id].init(); 
             })
             .catch(error => console.log(error));
         }
