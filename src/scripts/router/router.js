@@ -32,14 +32,23 @@ class Router {
 
         this.init();
     }
+    
+    waitDOM() {
+        const fakeCall = () => console.log("This function will be called twice.");
+        const intermediary = () => window.requestAnimationFrame(fakeCall);
+        window.requestAnimationFrame(intermediary);
+    }
+
 
     reload() {
         console.log("Reloading.");
         this.rootElem = document.querySelector(this.context);
         this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
-        setTimeout(() => {
-            program[this.routes[this.currentIndex].id].init();          
-        }, 100);
+        // setTimeout(() => {
+        //     program[this.routes[this.currentIndex].id].init();          
+        // }, 100);
+        this.waitDOM();
+        program[this.routes[this.currentIndex].id].init(); 
     }
 
     getData(html) {
@@ -201,10 +210,12 @@ class Router {
             .then(js => this.setupJS(js))
             .then(js => this.runJS(js))
             .then(() => {
-                setTimeout(() => {
-                    this.routes[this.currentIndex].isLoaded = true; 
-                    program[this.routes[this.currentIndex].id].init();          
-                }, 100);
+                // setTimeout(() => {
+                //     this.routes[this.currentIndex].isLoaded = true; 
+                //     program[this.routes[this.currentIndex].id].init();          
+                // }, 100);
+                this.waitDOM();
+                program[this.routes[this.currentIndex].id].init(); 
             })
             .catch(error => console.log(error));
         }
