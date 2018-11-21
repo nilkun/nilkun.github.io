@@ -36,11 +36,9 @@ class Router {
         this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
         const timeout = () => {
             if(loadedHTMLid !==this.routes[this.currentIndex].id) {
-                console.log("lh1: ", loadedHTMLid);
                 setTimeout(timeout, 50);
             }
             else {
-                console.log("lh: ", loadedHTMLid, this.routes[this.currentIndex].id);
                 program[this.routes[this.currentIndex].id].init();
             }
         }
@@ -91,7 +89,7 @@ class Router {
                 returnData = this.routes[this.currentIndex].path + final;
                 this.routes[this.currentIndex].script = final;
 
-                this.routes[this.currentIndex].innerHTML =  srcIndex + "<img src='./src/images/logos/empty.png' onload='console.log(\"loaded: \", loadedHTMLid); loadedHTMLid=" + this.routes[this.currentIndex].id + ";this.parentNode.removeChild(this);' />";
+                this.routes[this.currentIndex].innerHTML =  srcIndex + "<img src='./src/images/logos/empty.png' onload='loadedHTMLid=" + this.routes[this.currentIndex].id + ";this.parentNode.removeChild(this);' />";
                 this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
             } else {
                 this.rootElem.innerHTML = data;
@@ -172,6 +170,16 @@ class Router {
 
     hasChanged() {
         const r = this.routes;
+
+        // unload function!
+        // // IT IS NEVER UNDEFINED BECAUSE IT IS ON HASH CHANGE!!!
+        if(program[this.routes[this.currentIndex].id] !== undefined) {
+            if(program[this.routes[this.currentIndex].id].unload !== undefined) {
+                console.log("unloading...");
+                program[this.routes[this.currentIndex].id].unload();
+            }
+
+        }
         
         if(window.location.hash.length > 0) {
             for( let i = 0, length = r.length; i < length; i++) {

@@ -27,5 +27,9 @@ export default class AlgoMenu {
         this.running.init();
 
     }
+
+    unload() {
+        this.button.removeEventListener('click', this.bindPlay);
+    }
 }
 
