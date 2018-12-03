@@ -2,11 +2,13 @@
 nav {
 	position: fixed;
     width: 100%;
-    height: 5em;
+    height: 10vh;
+    text-decoration: none;
+    font-size: 2vh;
 }
 
 #navbar {
-    text-decoration: none;
+
 	background-color: black;
     opacity: 0.8;
     color:rgba(255, 106, 2, 0.75);
@@ -21,13 +23,11 @@ nav {
     /* background-color: pink; */
     /* rgba(0, 0, 0, 0.5);  */
     color: rgba(255, 106, 2, 1);
-    text-decoration: none;
 }
 
 #nav-links {
     color: rgba(255, 106, 2, 0.75); 
     display: flex;
-    text-decoration: none;
     color: orange;
     
 }

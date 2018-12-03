@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Sirtet backwards</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="sirtet.css">
+    </head>
+
+    <body class="app">
+        <div class="startScreen">
+        <div class="titleBar">Welcome to Sirtet, just like tetris, but the other way around.
+
+        </div>
+        <div>Select number of columns:</div>
+        <input type="range" min="10" max="20" value="15" class="slider" id="myRange">
+        <div class="startGame">START!</div>
+</div>
+</div>
+        <canvas id="canvas" width="200" height="400" style="border:1px solid #000000;"></canvas>
+        <!-- <script type="module" src="./containers/Spinner.js"></script> -->
+        <script type="module" src="init.js"></script>
+        <!-- <script type="module" src=start.js></script> -->
+    </body>
+</html>

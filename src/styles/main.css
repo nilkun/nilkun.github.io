@@ -33,8 +33,14 @@ li {
 }
 
 .app {
+	display: flex;
 	/* margin-bottom: -0.3em; */
-    /* padding-top: 6em; */
+	padding: 1vw;
+	margin: 1vw
+}
+
+.infobox {
+	padding: 2vw;
 }
 
 /* to not make navbar overlap */
