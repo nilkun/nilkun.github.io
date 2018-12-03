@@ -35,8 +35,10 @@ li {
 .app {
 	display: flex;
 	/* margin-bottom: -0.3em; */
-	padding: 1vw;
-	margin: 1vw
+	padding: .5vw;
+	margin: .5vw;
+	margin-top: 11vh;
+	border-radius: 20vw;
 }
 
 .infobox {
@@ -44,8 +46,8 @@ li {
 }
 
 /* to not make navbar overlap */
-.padding {
+/* .padding {
 	height: 5em;
 	width: 100%;
 	background-color: rgba(255, 106, 2, 0.7);
-}
+} */

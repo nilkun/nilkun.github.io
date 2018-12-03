@@ -4,25 +4,26 @@ footer {
     text-align: center;
     margin: 0px;
     padding: .1em;
+    font-size: 2vh;
 }
 
 footer h4 {
     margin: 0em;
     padding: 0em;
-	color: rgba(255, 106, 2, 0.75);
+	/* color: rgba(255, 106, 2, 0.75); */
 }
 
 footer a:link {
 	text-decoration: none;
-	color: rgba(255, 106, 2, 0.75);
+	/* color: rgba(255, 106, 2, 0.75); */
 }
 
 footer a:visited { 
-	color: rgba(255, 106, 2, 0.75);
+	/* color: rgba(255, 106, 2, 0.75); */
 }
 
 footer a:active {
-	color: rgba(255, 106, 2, 0.75);
+	/* color: rgba(255, 106, 2, 0.75); */
 }
 footer a:hover { 
 	color: rgba(255, 106, 2, 1);
