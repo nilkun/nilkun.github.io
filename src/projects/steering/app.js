@@ -26,11 +26,20 @@ export default class Steering {
         this.viewport.init();
         this.updateInterval = setInterval(() => this.update(), 1000/ 60);
 
-        window.addEventListener('mousedown', (e) => this.name.flee(e.x, e.y));
-        window.addEventListener('mouseup', () => this.name.isSeeking=true);
-        window.addEventListener('mousemove', (e) => { 
-                if (!this.name.isSeeking) this.name.flee(e.x, e.y);
-        });
+        this.viewport.canvas.onmousedown = (e) => this.name.flee(this.viewport.getMouse(e))
+        this.viewport.canvas.onmouseup =() => this.name.isSeeking=true;
+        this.viewport.canvas.onmousemove = (e) => { if(!this.name.isSeeking) this.name.flee(this.viewport.getMouse(e)) };
+
+        // window.addEventListener('mousedown', (e) => this.name.flee(e.x, e.y));
+        // window.addEventListener('mouseup', () => this.name.isSeeking=true);
+        // window.addEventListener('mousemove', (e) => { 
+        //         if (!this.name.isSeeking) this.name.flee(e.x, e.y);
+        // });
+    }
+
+    getMouse(event) {
+        const rect = this.canvas.getBoundingClientRect();
+        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
     }
     
     update() {

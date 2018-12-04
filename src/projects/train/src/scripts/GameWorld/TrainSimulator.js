@@ -35,12 +35,14 @@ export default class TrainSimulator {
         this.world.init(this.viewport.canvas);
         this.world.setRenderContext(this.viewport.context);
         this.world.render();
-        this.bindGridSwitch = this.world.switchGrid.bind(this);
+        this.bindGridSwitch = this.world.switchGrid.bind(this.world);
         this.runDemo();
     }
 
     runDemo() {  
-        document.getElementById('train-btn5').addEventListener('click', this.bindGridSwitch);
+        // document.getElementById('train-btn5').addEventListener('click', this.bindGridSwitch);
+        const btn = document.getElementById('train-btn5');
+        btn.onclick = this.bindGridSwitch;
         this.viewport.canvas.addEventListener('mousedown', this.bindPlay);        
         this.world.layTracks(3, 3);
         this.world.layTracks(26, 3);

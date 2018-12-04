@@ -20,7 +20,6 @@ export default class Start {
     }
 
     start() {
-        console.log(this);
         this.game = new Sirtet();
         this.game.init(this.viewport.context, this.scoreboard);
     }

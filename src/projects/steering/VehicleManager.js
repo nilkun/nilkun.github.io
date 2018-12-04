@@ -24,8 +24,8 @@ export default class VehicleManager {
         })
     }
 
-    flee(x, y) {
-        this.enemy.set(x, y);
+    flee(event) {
+        this.enemy.set(event.x, event.y);
         this.isSeeking = false;
     }
 

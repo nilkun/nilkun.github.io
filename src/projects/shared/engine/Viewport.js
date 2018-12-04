@@ -34,4 +34,8 @@ export default class Viewport {
         this.canvas.width = width;
         this.canvas.height = height;
     }
+    getMouse(event) {
+        const rect = this.canvas.getBoundingClientRect();
+        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    }
 }

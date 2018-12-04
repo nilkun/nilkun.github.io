@@ -2,38 +2,26 @@ footer {
 	background-color: rgba(0, 0, 0, 0.8);
 	color: rgba(255, 106, 2, 0.75);
     text-align: center;
-    margin: 0px;
-    padding: .1em;
-    font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    padding: 1em;
+    font-size: 70%;
+    margin: 0;
 }
 
-footer h4 {
-    margin: 0em;
-    padding: 0em;
-	/* color: rgba(255, 106, 2, 0.75); */
-}
-
-footer a:link {
-	text-decoration: none;
-	/* color: rgba(255, 106, 2, 0.75); */
-}
-
-footer a:visited { 
-	/* color: rgba(255, 106, 2, 0.75); */
-}
-
-footer a:active {
-	/* color: rgba(255, 106, 2, 0.75); */
-}
 footer a:hover { 
 	color: rgba(255, 106, 2, 1);
-}
-
-#weblinks li {
-    padding: 10px;
 }
 
 #weblinks {
     display: flex;
     justify-content: center;
+}
+#weblinks li {
+    padding: 0 1em 0 1em;
+}
+#vanillaJS {
+    font-style: italic;
 }

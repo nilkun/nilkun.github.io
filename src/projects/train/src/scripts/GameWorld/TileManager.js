@@ -130,7 +130,6 @@ export default class TileManager {
     }
 
     startTrain() {
-        console.log("Starting train...");
         this.hasTrain = true;
         this.train.init();
 
@@ -159,7 +158,6 @@ export default class TileManager {
                 this.context.rect(x * this.tileSize, y * this.tileSize, this.tileSize,  this.tileSize);
                 this.context.fillStyle = this.tile[x][y].color;
                 this.context.fill(); 
-                
                 if(this.gridOn) { this.context.stroke(); }
                 if(this.tile[x][y].hasTrack) {
                     this.context.drawImage(this.tileTextures, 
