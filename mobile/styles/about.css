@@ -1,0 +1,24 @@
+/* About me css */
+.about {
+	/* width: 60vw; */
+	/* font-size: 80%; */
+    display: flex;
+	flex-direction: column;	
+	background-color: rgba(255, 106, 2, 0.7);
+	padding: 2%;
+	border-radius: .5vw;    
+}
+
+.portrait:hover {
+	opacity: 0.8;
+}
+
+img.circle {
+	float: left;
+	border-radius: 50%;
+	margin-right:2%; 
+	border-radius: 50%;
+	-webkit-shape-outside:circle();
+	shape-outside:circle();
+}
+

@@ -4,6 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+        <script>
+            const isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            const mobile = isMobile.any();
+
+            if(mobile===null) {
+                window.location.replace("./desktop/index.html");
+            }
+            else {
+                // alert("Loading mobile site.");
+                window.location.replace("./mobile/index.html");
+            }
+            // FIRST CLICK ON LINK DOES NOTHING!
+
+        </script>
+
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
         <link rel="stylesheet" href="./src/styles/main.css">
