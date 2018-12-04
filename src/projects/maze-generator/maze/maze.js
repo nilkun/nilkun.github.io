@@ -37,7 +37,7 @@ export default class Maze{
         this.instacomplete.onclick = () => this.insta();
 
         this.astarbutton = document.querySelector("#solve");
-        this.astarbutton.onclick = () => this.solve();
+        this.astarbutton.onclick = () => console.log("HEY!! WAIT FOR THE MAZE TO FINISH!!!");
 
         this.button = document.getElementById('button');
         this.button.onclick =  () => this.restart();
@@ -49,6 +49,9 @@ export default class Maze{
     insta() {
         clearInterval(this.running);
         while(!this.crawl.completed) this.crawl.move(this);
+
+        this.astarbutton = document.querySelector("#solve");
+        this.astarbutton.onclick = () => this.solve();
     }
 
     updateSpeed() {
@@ -109,7 +112,7 @@ export default class Maze{
         this.instacomplete.onclick = () => this.insta();
 
         this.astarbutton = document.querySelector("#solve");
-        this.astarbutton.onclick = () => this.solve();
+        this.astarbutton.onclick = () => console.log("HEY!! WAIT FOR THE MAZE TO FINISH!!!");
 
         this.button = document.getElementById('button');
         this.button.onclick =  () => this.restart();
