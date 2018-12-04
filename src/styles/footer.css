@@ -9,6 +9,8 @@ footer {
     padding: 1em;
     font-size: 70%;
     margin: 0;
+    max-height: 5vh;
+    max-width: 100vw;
 }
 
 footer a:hover { 
@@ -23,5 +25,6 @@ footer a:hover {
     padding: 0 1em 0 1em;
 }
 #vanillaJS {
+    padding-top: .5em;
     font-style: italic;
 }

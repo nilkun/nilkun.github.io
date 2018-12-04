@@ -16,8 +16,8 @@ export default class Train {
         this.destination = [];
         this.direction = new Vector;
         this.sprite = new Image();
-        // this.sprite.src = './src/textures/train.png';
         this.sprite.src = PATH + '/src/textures/train.png';
+        // this.sprite.style.width = "10%";
     }
 
     init() {
@@ -71,13 +71,11 @@ export default class Train {
         this.angle = angle;
     }
 
-    render(context) {
-
+    render(context, size) {
         context.save();
-        context.translate(this.position.x + 8, this.position.y + 8);
+        context.translate(this.position.x + size/2, this.position.y + size/2);
         context.rotate(this.angle);
-        context.drawImage(this.sprite, -8, -8);
-        // context.stroke();
+        context.drawImage(this.sprite, 0, 0, 16, 16, -size/2, -size/2, size, size);
         context.restore();
     }
 
@@ -89,21 +87,14 @@ export default class Train {
         let speed = this.speed;
         let d = desired.getMag();
 
-        // just change direction for now!
         if(d<1) {
             this.cd = true;
         }
-        // if(d<100) {
-        //     speed = d * this.deceleration;
-        //     if(d<5) speed = 0;    
-        // }
         
         desired.setMag(speed);
 
         const steering = new Vector();
         steering.add(desired);
-        // steering.sub(this.velocity);
-        // steering.limit(this.maxForce);
 
         return steering;
     }

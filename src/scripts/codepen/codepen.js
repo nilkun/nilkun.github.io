@@ -3,8 +3,11 @@ import Viewport from '../engine/Viewport.js';
 
 export default class AlgoMenu {
     constructor() {
-        this.viewport = new Viewport(300, 380);
-        this.running = new L_System;
+        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        this.height = h * .75;
+        this.width = this.height / 3.8 * 3;
+        this.viewport = new Viewport(this.width, this.height);
+        this.running = new L_System(this.width, this.height);
 
         // event handling
         this.bindPlay = this.running.create.bind(this.running);
@@ -22,9 +25,10 @@ export default class AlgoMenu {
         this.viewport.refetch();
         this.viewport.init();
 
+        // this.running = new L_System(this.width, this.height);
         this.running.renderer = this.viewport.context;
         
-        this.running.init();
+        this.running.init(this.width, this.height);
 
     }
 

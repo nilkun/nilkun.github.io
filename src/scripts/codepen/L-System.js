@@ -1,7 +1,7 @@
 import Vector from '../engine/Vector.js';
 
 export default class L_System {
-    constructor() {
+    constructor(w, h) {
         // FOR THE L-SYSTEM
         this.axiom;
         this.sentence = "";
@@ -11,7 +11,7 @@ export default class L_System {
         // For drawing
         this.line = [];
         this.line[0] = [];
-        this.line[0][0] = new Vector(110, 380);
+        this.line[0][0] = new Vector(110 / 300 * w, h);
 
         this.currentLine = new Vector(0, -1);
         this.memoryBank = [];
@@ -19,16 +19,17 @@ export default class L_System {
 
     }
 
-    init() {
+    init(w, h) {
         this.axiom = "F";
         this.sentence = this.axiom;
-        this.len = 100;
+        this.len = 100/ 380 * h;
 
         // tree
         this.rule.push(this.createRule("F", "FF+[+F-F-F]-[-F+F+F]"));
+        // console.log(this.rule);
         this.line = [];
         this.line[0] = [];
-        this.line[0][0] = new Vector(110, 380);
+        this.line[0][0] = new Vector(110 / 300 * w, h);
 
         this.currentLine = new Vector(0, -1);
         this.memoryBank = [];
@@ -56,6 +57,7 @@ export default class L_System {
             if(!found) nextSentence += this.sentence.charAt(i);
         }    
         this.sentence = nextSentence;
+        // console.log(this.rule);
     }
     
     renderAll() {
@@ -79,7 +81,6 @@ export default class L_System {
     }
     
     turtle() {
-
         let currentPos = new Vector(this.line[0][0].x, this.line[0][0].y);
         let branch = this.line.length - 1;
         

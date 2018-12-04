@@ -68,15 +68,16 @@ export default class Hexagon {
     renderLine(offset, scale, diagonal, context, horizontal, node) {
         let first = 0;
         let second = 0;
-        if(this.xPos%2===0) first = 10;
-        if(node.xPos%2===0) second = 10; 
+        if(this.xPos%2===0) first = offset.y;
+        if(node.xPos%2===0) second = offset.y; 
     
     
         context.moveTo((offset.x + this.xPos * scale) + diagonal + horizontal / 2, offset.y + this.yPos * 2 * diagonal + first);
-        // this.xPos, this.yPos);
         context.lineTo((offset.x + node.xPos * scale) + diagonal + horizontal / 2, offset.y + node.yPos * 2 * diagonal + second);
     }
+    
     renderAll(offset, scale, diagonal, context, horizontal) {
+
         // THIS FUNCTION DOES NOT STROKE, SHOULD BE DONE BY PARENT
         // let position = new Vector(offset.x + xPos * scale, offset.y + yPos * 2 * diagonal);
 

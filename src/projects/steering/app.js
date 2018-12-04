@@ -11,9 +11,12 @@ export default class Steering {
     }
 
     init() {
-        this.viewport = new Viewport(340, 295);
+        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        let height = h * .75;
+        let width = height / 295 * 340;
+        this.viewport = new Viewport(width, height);
         this.name = new VehicleManager;
-        this.size = 5;
+        this.size = width / 68;
 
         this.image = new Image();
 

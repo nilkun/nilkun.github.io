@@ -11,7 +11,9 @@ export default class Viewport {
         this.canvas.height = height;
     }
 
-    init() {
+    init(width = 800, height = 600) {
+        this.canvas.width = width;
+        this.canvas.height = height;
         this.canvas.style.background = "#FFAA00";
         this.canvas.style.border = "1px solid #000000";
     }

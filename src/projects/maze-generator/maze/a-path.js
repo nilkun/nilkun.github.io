@@ -9,9 +9,11 @@ export default class AStar {
         this.goalIndex;
         this.columns;
         this.renderer;
+        this.diagonal;
     }
 
-    start(node, startNode, endNode, columns, renderer) {
+    start(node, startNode, endNode, columns, renderer, diagonal) {
+        this.diagonal = diagonal;
         this.node = node;
         this.untestedNodes = [];
         this.renderer = renderer;
@@ -147,7 +149,7 @@ export default class AStar {
             }
         }
             this.renderer.fillStyle="#000000";
-            const diagonal = 10;
+            const diagonal = this.diagonal;
             const offset = new Vector(0, diagonal);
             const twoSquared = 1.41421356237;
             const horizontal = diagonal * twoSquared;
@@ -158,27 +160,19 @@ export default class AStar {
             
                 while(parentNode.parentNode !== -1){
                     this.renderer.beginPath();
-
-                parentNode.renderLine(offset, scale, diagonal, this.renderer, horizontal, this.node[parentNode.parentNode]);
-                    // parentNode.renderAll(offset, scale, diagonal, this.renderer, horizontal, parentNode.xPos, parentNode.yPos);
-                    parentNode = this.node[parentNode.parentNode];
-                    // this.renderer.fillStyle="red";
-                    // this.renderer.fill();
+                    parentNode.renderLine(offset, scale, diagonal, this.renderer, horizontal, this.node[parentNode.parentNode]);
                     this.renderer.strokeStyle = "red";
                     this.renderer.stroke();
                     this.renderer.closePath();
-                }
-                this.renderer.beginPath();
-                // parentNode.renderAll(offset, scale, diagonal, this.renderer, horizontal, parentNode.xPos, parentNode.yPos);
-                parentNode.renderLine(offset, scale, diagonal, this.renderer, horizontal, parentNode.xPos, parentNode.yPos);
 
+                    parentNode = this.node[parentNode.parentNode];
+                }
+
+                this.renderer.beginPath();
+                parentNode.renderLine(offset, scale, diagonal, this.renderer, horizontal, parentNode.xPos, parentNode.yPos);
                 parentNode = this.node[parentNode.parentNode];
-                // this.renderer.fillStyle="black";
-                // this.renderer.fill();
-                // this.renderer.strokeStyle = "black";
                 this.renderer.stroke();
                 this.renderer.closePath();
-
             }
 
     reset() {

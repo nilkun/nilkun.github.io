@@ -9,38 +9,32 @@ export default class Maze{
 
         // CONSTANTS
         // (diagonal and horizontal lengths)
-        this.twoSquared = 1.41421356237;
-        this.diagonal = 10;
-        this.horizontal = this.diagonal * this.twoSquared;
+        this.twoSquared;
+        this.diagonal;
+        this.horizontal;
         // (space between hexagons in the same row)   
-        this.spaceBetween = this.horizontal + this.diagonal;
+        this.spaceBetween;
         // (number of rows and columns)
-        this.hexColumns = 20;
-        this.hexRows = 20;
+        this.hexColumns;
+        this.hexRows;
         // this.setConstants();
         
-        this.scale = this.spaceBetween;
+        this.scale;
         
-        this.offset = new Vector(0, this.diagonal);
-        this.viewport = new Viewport(Math.ceil(this.hexColumns*this.spaceBetween) + this.diagonal, Math.ceil(this.hexColumns*this.spaceBetween));
-        this.renderer = this.viewport.context;
+        this.offset;
+        this.viewport;
+        this.renderer;
         this.hex = [];
         this.crawl;
         this.running;
 
         // event listeners
-        this.sliderInfo = document.querySelector(".sliderInfo");
-        this.slider = document.getElementById("speedSlider");
-        this.slider.oninput = ()  => this.updateSpeed(); 
+        this.sliderInfo;
+        this.slider;        
 
-        this.instacomplete = document.querySelector("#instacomplete");
-        this.instacomplete.onclick = () => this.insta();
-
-        this.astarbutton = document.querySelector("#solve");
-        this.astarbutton.onclick = () => console.log("HEY!! WAIT FOR THE MAZE TO FINISH!!!");
-
-        this.button = document.getElementById('button');
-        this.button.onclick =  () => this.restart();
+        this.instacomplete;
+        this.astarbutton;
+        this.button;
     }
 
     setConstants() {
@@ -58,7 +52,11 @@ export default class Maze{
         this.sliderInfo.innerHTML = this.slider.value;
         clearInterval(this.running);
         this.running = setInterval( () => {
-            if(this.crawl.completed) clearInterval(this.running);
+            if(this.crawl.completed) {
+                clearInterval(this.running);
+                this.astarbutton = document.querySelector("#solve");
+                this.astarbutton.onclick = () => this.solve();
+            }
             this.crawl.move();
             }, 1000 - this.slider.value
         );
@@ -84,14 +82,25 @@ export default class Maze{
 
         // CONSTANTS
         // (diagonal and horizontal lengths)
-        this.twoSquared = 1.41421356237;
-        this.diagonal = 10;
-        this.horizontal = this.diagonal * this.twoSquared;
-        // (space between hexagons in the same row)   
-        this.spaceBetween = this.horizontal + this.diagonal;
+
+        this.screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)* .75;
+
+        // this.realHeight = Math.ceil(
+        // screenHeight =     this.hexColumns*((this.diagonal * this.twoSquared) + this.diagonal)
+
+        // screenHeight/20/(1+ pi) =  
+        
         // (number of rows and columns)
         this.hexColumns = 20;
         this.hexRows = 20;
+        this.twoSquared = 1.41421356237;
+
+        this.diagonal = this.screenHeight / this.hexColumns / (1 + this.twoSquared);
+            
+        // this.diagonal = 10;
+        this.horizontal = this.diagonal * this.twoSquared;
+        // (space between hexagons in the same row)   
+        this.spaceBetween = this.horizontal + this.diagonal;
         // this.setConstants();
         
         this.scale = this.spaceBetween;
@@ -131,7 +140,11 @@ export default class Maze{
         this.crawl = new Crawler(this.hex, this.hexRows, this.hexColumns, this.renderer, this.offset, this.scale, this.diagonal, this.horizontal);
         
         this.running = setInterval( () => {
-                if(this.crawl.completed) clearInterval(this.running);
+                if(this.crawl.completed)  {
+                    clearInterval(this.running);
+                    this.astarbutton = document.querySelector("#solve");
+                    this.astarbutton.onclick = () => this.solve();
+                }
                 this.crawl.move();
             }, this.slider.value
         );
@@ -154,6 +167,6 @@ export default class Maze{
 
     solve() {
         const astar = new AStar;
-        astar.start(this.hex, this.hex[0], this.hex[399], this.hexColumns, this.renderer);
+        astar.start(this.hex, this.hex[0], this.hex[399], this.hexColumns, this.renderer, this.diagonal);
     }
 }

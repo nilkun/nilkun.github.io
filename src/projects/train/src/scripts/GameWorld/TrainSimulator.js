@@ -3,20 +3,18 @@ import TileManager from './TileManager.js';
 
 export default class TrainSimulator {
     constructor() {
-        // this.path = this.currentScriptPath();
-        this.world;
+
         this.viewport;
+        this.world;
         this.updateInterval;
         this.play;
-        this.bindPlay = this.startGame.bind(this);
-        this.bindDemo = this.demoMode.bind(this);
+
+        this.bindPlay;
+        this.bindDemo;
         this.bindGridSwitch;
-        this.world = new TileManager();
-        this.viewport = new Viewport(480, 480);
-        this.viewport.init();
-        this.world.init(this.viewport.canvas);
-        this.world.setRenderContext(this.viewport.context);
-        this.world.render();
+
+        this.screenHeight; 
+
     }
     currentScriptPath() {
         // get scripts
@@ -29,20 +27,29 @@ export default class TrainSimulator {
     }
 
     init() {
-        this.world = new TileManager();
-        this.viewport = new Viewport(480, 480);
-        this.viewport.init();
-        this.world.init(this.viewport.canvas);
-        this.world.setRenderContext(this.viewport.context);
+
+        this.screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)* .75;
+        this.viewport = new Viewport;
+        this.viewport.init(this.screenHeight, this.screenHeight);
+
+        // Use 30 tiles
+        this.world = new TileManager;  
+        this.world.init(this.viewport, this.screenHeight / 30);
         this.world.render();
+
+        this.bindPlay = this.startGame.bind(this);
+        this.bindDemo = this.demoMode.bind(this);
         this.bindGridSwitch = this.world.switchGrid.bind(this.world);
+
         this.runDemo();
     }
 
     runDemo() {  
+
         // document.getElementById('train-btn5').addEventListener('click', this.bindGridSwitch);
         const btn = document.getElementById('train-btn5');
         btn.onclick = this.bindGridSwitch;
+        
         this.viewport.canvas.addEventListener('mousedown', this.bindPlay);        
         this.world.layTracks(3, 3);
         this.world.layTracks(26, 3);
@@ -66,17 +73,16 @@ export default class TrainSimulator {
             this.world.update();
             this.world.click(mousePos.x, mousePos.y);
         })
-
-
     }
 
     demoMode() {
         this.world.update();
         this.viewport.context.fillStyle = "white";
-        this.viewport.context.font = "30px Arial";
-        this.viewport.context.fillText("TRAIN SIMULATOR!!!", 100, 200); 
-        this.viewport.context.font = "15px Arial";
-        this.viewport.context.fillText("click to start...", 190, 230); 
+        this.viewport.context.font = this.screenHeight/20 + "px Arial";
+        this.viewport.context.fillText("TRAIN SIMULATOR!!!", (this.screenHeight - this.viewport.context.measureText("TRAIN SIMULATOR!!!").width) / 2,
+             this.screenHeight / 3); 
+        this.viewport.context.font = this.screenHeight/20 + "px Arial";
+        this.viewport.context.fillText("click to start...", (this.screenHeight - this.viewport.context.measureText("click to start...").width) / 2, this.screenHeight/2); 
         this.viewport.context.stroke();   
     }
 

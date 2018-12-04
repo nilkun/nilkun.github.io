@@ -10,29 +10,25 @@ import { PATH } from '../constants.js';
 
 export default class TileManager {
     constructor() {
-        this.width = 30;
-        this.height = 30;
-        this.tile = new Array(this.width);
-        this.tileSize = 16;  
-        this.context = "";
-        this.canvas = "";
-        this.start = -1;
-        //new Vector(2, 2);
-        this.goal = -2;
-        //new Vector(17, 19);
-        this.origin = false;
-        this.isClicked = false;  
-        this.hasTrain = false;
-        this.isCompleted = false;
-        this.changeDirection = false;
-        this.circuit = [];
-        this.current = [];
-        this.train = new Train();
-        this.path = new Path;  
-        this.tileTextures = new Image();
-        // this.tileTextures.src = './src/textures/rails-basic.png'; 
-        this.tileTextures.src = PATH + './src/textures/rails-basic.png';
-        this.gridOn = true;
+        this.width;
+        this.height;
+        this.tile;
+        this.tileSize;  
+        this.context;
+        this.canvas;
+        this.start;
+        this.goal;
+        this.origin;
+        this.isClicked;  
+        this.hasTrain;
+        this.isCompleted;
+        this.changeDirection;
+        this.circuit;
+        this.current;
+        this.train;
+        this.path;  
+        this.tileTextures;
+        this.gridOn;
     }
 
     getPath() {
@@ -40,38 +36,10 @@ export default class TileManager {
         this.render();
     }
 
-    test() {
-
-    }
-
     reset() {
-        this.width = 30;
-        this.height = 30;
-        this.tile = new Array(this.width);
-        this.tileSize = 16;  
-        this.context = "";
-        this.canvas = "";
-        this.start = -1;
-        //new Vector(2, 2);;
-        this.goal = -2; //new Vector(12, 12);;
-        this.origin = false;
-        this.isClicked = false;  
-        this.hasTrain = false;
-        this.isCompleted = false;
-        this.changeDirection = false;
-        this.circuit = [];
-        this.current = [];
-        this.train = new Train();
-        this.path = new Path; 
-        this.gridOn = true;
-        for(let i = 0; i < this.width; i++) {
-            this.tile[i] = new Array(this.height);
-            for(let j=0; j < this.height; j++) {
-                this.tile[i][j] = new Tile;
-            }
-        }
-        this.connectNeighbours();
+        this.init();
     }
+    
     switchGrid() {
         if(this.gridOn) this.gridOn = false;
         else this.gridOn = true;
@@ -81,16 +49,53 @@ export default class TileManager {
         this.context = ctx;
     }
 
-    init(canvas) {
-        this.canvas = canvas;
+    init(viewport, size) {
+
+        // Number of tiles
+        this.width = 30;
+        this.height = 30;
+
+        this.tile = new Array(this.width);
+        
+        // size of tile in pixels
+        this.tileSize = size; 
+
+        this.start = -1;
+        this.goal = -2;
+
+        this.origin = false;
+        this.isClicked = false;  
+        this.hasTrain = false;
+        this.isCompleted = false;
+        this.changeDirection = false;
+
+        this.circuit = [];
+        this.current = [];
+
+        this.train = new Train();
+        this.path = new Path;  
+        this.tileTextures = new Image();
+
+        this.tileTextures.src = PATH + './src/textures/rails-basic.png';
+        this.gridOn = true;
+
+        this.context = viewport.context;
+        this.canvas = viewport.canvas;
+
+        this.createArrayOfArrays();
+
+        this.connectNeighbours();
+    }
+
+    createArrayOfArrays() {
         for(let i = 0; i < this.width; i++) {
             this.tile[i] = new Array(this.height);
             for(let j=0; j < this.height; j++) {
                 this.tile[i][j] = new Tile;
             }
         }
-        this.connectNeighbours();
     }
+
     click(x, y) {
         if(!this.isCompleted) {
             x = Math.floor(x/this.tileSize);
@@ -172,7 +177,7 @@ export default class TileManager {
         if(this.hasTrain) {
             this.changeDirection = this.train.update();
             this.render();
-            this.train.render(this.context);
+            this.train.render(this.context, this.tileSize);
             if(this.changeDirection) this.updateTrain();
         }
 
