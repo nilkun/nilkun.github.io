@@ -9,14 +9,45 @@
         <link rel="stylesheet" href="./styles/main.css">
         <link rel="stylesheet" href="./styles/app.css">
         <link rel="stylesheet" href="./styles/navigation.css" />
-        <!-- <link rel="stylesheet" href="./src/styles/footer.css"> -->
+        <link rel="stylesheet" href="./styles/footer.css">
         <title>Nilkun Online</title>
+
+        <script>
+            const toggleMenu = () => {
+                const menu = document.getElementById("menu-items");
+                const sheet = menu.previousElementSibling;
+
+
+
+
+                if(menu.style.left === "") {         
+                    menu.style.left = '-100%';
+
+                    sheet.style.opacity = '0';
+                    sheet.style.transition= '';
+                    sheet.style.zIndex = '-1';
+                    document.body.style.overflow = "";
+                    sheet.style.transition = '0.5s ease-in-out';
+                }
+                else {
+                    menu.style.left = "";
+                    sheet.style.opacity = '0.8';
+                    sheet.style.transition= '';
+                    sheet.style.zIndex = '1';
+                    document.body.style.overflow = "hidden";
+                    sheet.style.transition = '0.5s ease-in-out';
+                } 
+            }   
+        </script>
     </head>
     <body>
-        <div>
+        <div class="background"></div>
         <nav id="navbar">
-            <a href="menu"><img class="hamburger" src="./images/hamburger.png"></a>
-            <!-- <ul id="nav-links">
+            <a href="javascript:void(0)" class="hamburger" onclick='toggleMenu()'><img class="hamburger-icon" src="./images/logos/hamburger.png" alt="hamburger icon"></a>
+
+            <!-- <a href="javascript:void(0)" class="hamburger" onclick='toggleMenu()'>/a>>
+                <img class="hamburger-icon" src="./src/images/mobile/hamburger.png"  />         -->
+                       <!-- <ul id="nav-links">
                 <li><a href="#about"><strong>NILKUN</strong></a></li>
                 <li><a href="#maze">Maze Generator / A* pathfinding</a></li>
 
@@ -31,29 +62,59 @@
             <div id="social-media">
                 <ul id="social-links">
                     <li>
-                        <a href="https://www.twitter.com/nilkun"><img class="social-image" src="../src/images/logos/twitter.png" alt="Twitter" title="nilkun @ twitter" srcset=""></a>
+                        <a href="https://www.twitter.com/nilkun"><img class="social-image" src="/shared/images/logos/twitter.png" alt="Twitter" title="nilkun @ twitter" srcset=""></a>
                     </li>
                     <li>
-                        <a href="https://www.codepen.io/nilkun"><img class="social-image" src="../src/images/logos/codepen.png" alt="Codepen" title="nilkun @ codepen" srcset=""></a>
+                        <a href="https://www.codepen.io/nilkun"><img class="social-image" src="/shared/images/logos/codepen.png" alt="Codepen" title="nilkun @ codepen" srcset=""></a>
                     </li>
                     <li>
-                        <a href="https://www.github.com/nilkun"><img class="social-image" src="../src/images/logos/github.png" alt="Github" title="nilkun @ github" srcset=""></a>
+                        <a href="https://www.github.com/nilkun"><img class="social-image" src="/shared/images/logos/github.png" alt="Github" title="nilkun @ github" srcset=""></a>
                     </li>
                 </ul>
             </div>            
         </nav>
 
-        <br><br><br><br>
-        I'm terribly sorry, but there is no mobile version yet! Please visit the desktop version instead.
+        
 
+        <div class="inaccessible"></div>
+        <div id="menu-items">
+                <a href="#about" class="item"><img class="menu-img" src="/shared/images/icons/floppy.png" alt="about" /><strong>&nbsp&nbsp&nbsp404-ish message!</strong></a>
+                <div class="item-2"> The mobile version is not yet available, please find a desktop computer (or laptop) and try again! <br> </div>
+                <!-- <a href="#concept" class="item"><img class="icon" src="/shared/images/icons/floppy.png" alt="concept" />&nbsp&nbsp&nbspOur concept</a>
+                <a href="#products" class="item"><img class="icon" src="/shared/images/icons/floppy.png" alt="products" />&nbsp&nbsp&nbspOur products</a>
+                <a href="#blog" class="item"><img class="icon" src="/shared/images/icons/floppy.png" alt="news" />&nbsp&nbsp&nbspLatest news</a>
+                <a href="#events" class="item"><img class="icon" src="/shared/images/icons/floppy.png" alt="events" />&nbsp&nbsp&nbspUpcoming events</a> -->
+                <!-- <div class="item"> -->
+                    <div class="sns">
+                        <a href="https://www.twitter.com/nilkun"><img class="menu-img" src="/shared/images/logos/twitter.png" alt="Twitter" title="nilkun @ twitter" srcset=""></a>
+                        <a href="https://www.codepen.io/nilkun"><img class="menu-img" src="/shared/images/logos/codepen.png" alt="Codepen" title="nilkun @ codepen" srcset=""></a>
+                        <a href="https://www.github.com/nilkun"><img class="menu-img" src="/shared/images/logos/github.png" alt="Github" title="nilkun @ github" srcset=""></a>
+                    </div>
+                <!-- <img class="icon" src="./src/images/shared/icons/iconmonstr-speech-bubble-comments-thin.png" alt="email" /> -->
+                <!-- </div> -->
+        </div>
+<!-- 
         <br><br><br><br>
+        I'm terribly sorry, but there is no mobile version yet! Please visit the desktop version instead. -->
 
-        <!-- <div class="app">Loading...</div> -->
+        <!-- <br><br><br><br> -->
+
+        <div class="app">Loading...</div>
         <footer class="footer">
              <div id="vanillaJS">This website is framework-free.</div>
         </footer>
-    </div>
+        <script>
+                        // these two should be loaded after
+                        const menu = document.getElementById("menu-items");
+                menu.style.left = '-100%';
+                menu.style.transition= '0.5s ease-in-out';
 
+                const sheet = menu.previousElementSibling;
+                sheet.style.transition = '0.5s ease-in-out';
+                const darkArea = document.querySelector('.inaccessible').addEventListener('touchstart', (e) => { 
+                    toggleMenu();
+                });
+        </script>
         <script type="module" src="../shared/router/router.js"></script>
         <script type="module" src="../shared/router/routerInit.js" type="module"></script>
     </body>
