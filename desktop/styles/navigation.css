@@ -8,14 +8,15 @@
     font-size: 90%;
 	background-color: black;
     opacity: 0.8;
-    color:rgba(255, 106, 2, 0.75);
+    text-color: #eeeeee;
+    /* rgba(255, 106, 2, 0.75); */
     display: flex;
     justify-content: space-between;
 }
 
 /* MENU ROUTER LINKS */
 #nav-links {
-    color: rgba(255, 106, 2, 0.75); 
+    /* color: rgba(255, 106, 2, 0.75);  */
     display: flex;
     margin: auto  0 auto 0;   
     justify-content: center; 

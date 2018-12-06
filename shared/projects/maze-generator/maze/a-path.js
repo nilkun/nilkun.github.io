@@ -161,7 +161,7 @@ export default class AStar {
                 while(parentNode.parentNode !== -1){
                     this.renderer.beginPath();
                     parentNode.renderLine(offset, scale, diagonal, this.renderer, horizontal, this.node[parentNode.parentNode]);
-                    this.renderer.strokeStyle = "red";
+                    this.renderer.strokeStyle = "blue";
                     this.renderer.stroke();
                     this.renderer.closePath();
 

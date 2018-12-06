@@ -8,15 +8,19 @@ export default class Steering {
         this.name;
         this.updateInterval;
         this.size;
+        this.settings = {};
     }
 
-    init() {
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        let height = h * .75;
-        let width = height / 295 * 340;
-        this.viewport = new Viewport(width, height);
+    init(props = this.settings) {
+
+
+        this.settings.screenHeight = props.screenHeight * 1.2 > props.screenWidth ?  props.screenWidth / 1.2 : props.screenHeight;
+        this.settings.screenWidth = this.settings.screenHeight * 1.2;
+        this.viewport = new Viewport(this.settings.screenWidth, this.settings.screenHeight);
         this.name = new VehicleManager;
-        this.size = width / 68;
+        this.size = this.settings.screenWidth / 68;
+
+        this.settings.isMobile = props.isMobile;
 
         this.image = new Image();
 
@@ -29,10 +33,16 @@ export default class Steering {
         this.viewport.init();
         this.updateInterval = setInterval(() => this.update(), 1000/ 60);
 
-        this.viewport.canvas.onmousedown = (e) => this.name.flee(this.viewport.getMouse(e))
-        this.viewport.canvas.onmouseup =() => this.name.isSeeking=true;
-        this.viewport.canvas.onmousemove = (e) => { if(!this.name.isSeeking) this.name.flee(this.viewport.getMouse(e)) };
-
+        if(this.settings.isMobile) {
+            this.viewport.canvas.ontouchstart = (e) => this.name.flee(this.viewport.getTouch(e))
+            this.viewport.canvas.ontouchend =() => this.name.isSeeking=true;
+            this.viewport.canvas.ontouchmove = (e) => { if(!this.name.isSeeking) this.name.flee(this.viewport.getTouch(e)) };
+        } else {
+            this.viewport.canvas.onmousedown = (e) => this.name.flee(this.viewport.getMouse(e))
+            this.viewport.canvas.onmouseup =() => this.name.isSeeking=true;
+            this.viewport.canvas.onmousemove = (e) => { if(!this.name.isSeeking) this.name.flee(this.viewport.getMouse(e)) };
+        }
+        // this.viewport.canvas.ontouchstart.
         // window.addEventListener('mousedown', (e) => this.name.flee(e.x, e.y));
         // window.addEventListener('mouseup', () => this.name.isSeeking=true);
         // window.addEventListener('mousemove', (e) => { 

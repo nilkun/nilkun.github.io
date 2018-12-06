@@ -35,6 +35,7 @@ export default class Maze{
         this.instacomplete;
         this.astarbutton;
         this.button;
+        this.settings = {};
     }
 
     setConstants() {
@@ -78,39 +79,34 @@ export default class Maze{
         this.renderer.stroke();
     }
 
-    init() {
+    init(props = this.settings) {
 
-        // CONSTANTS
-        // (diagonal and horizontal lengths)
+        this.settings.screenHeight = props.screenHeight * 1.05 > props.screenWidth  
+            ? props.screenWidth / 1.05 
+            : props.screenHeight;
 
-        this.screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)* .75;
+        this.settings.screenWidth = this.settings.screenHeight * 1.05;
 
-        // this.realHeight = Math.ceil(
-        // screenHeight =     this.hexColumns*((this.diagonal * this.twoSquared) + this.diagonal)
-
-        // screenHeight/20/(1+ pi) =  
-        
         // (number of rows and columns)
         this.hexColumns = 20;
         this.hexRows = 20;
         this.twoSquared = 1.41421356237;
 
-        this.diagonal = this.screenHeight / this.hexColumns / (1 + this.twoSquared);
+        this.diagonal =  this.settings.screenHeight / this.hexColumns / (1 + this.twoSquared);
             
         // this.diagonal = 10;
         this.horizontal = this.diagonal * this.twoSquared;
         // (space between hexagons in the same row)   
         this.spaceBetween = this.horizontal + this.diagonal;
-        // this.setConstants();
         
         this.scale = this.spaceBetween;
         
         this.offset = new Vector(0, this.diagonal);
-        this.viewport = new Viewport(Math.ceil(this.hexColumns*this.spaceBetween) + this.diagonal, Math.ceil(this.hexColumns*this.spaceBetween));
+        
+        this.viewport = new Viewport(this.settings.screenWidth, this.settings.screenWidth / 1.20205539628);
         this.renderer = this.viewport.context;
+
         this.hex = [];
-        this.crawl;
-        this.running;
 
         // event listeners
         this.sliderInfo = document.querySelector(".sliderInfo");
@@ -126,19 +122,20 @@ export default class Maze{
         this.button = document.getElementById('button');
         this.button.onclick =  () => this.restart();
 
-
-
         this.slider.value = 500;
-        this.viewport.refetchCanvas();
-        this.renderer = this.viewport.context;
-        clearInterval(this.running);
-        this.hex = [];
+
         this.viewport.clear();
         this.createHexagons();
         this.renderHexagons();        
 
         this.crawl = new Crawler(this.hex, this.hexRows, this.hexColumns, this.renderer, this.offset, this.scale, this.diagonal, this.horizontal);
         
+        this.startInterval();
+
+    }
+
+    startInterval() {
+        clearInterval(this.running);
         this.running = setInterval( () => {
                 if(this.crawl.completed)  {
                     clearInterval(this.running);
@@ -147,7 +144,7 @@ export default class Maze{
                 }
                 this.crawl.move();
             }, this.slider.value
-        );
+        );        
     }
 
     restart() {

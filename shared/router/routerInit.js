@@ -20,22 +20,9 @@ const init = () => {
             new Route('maze', project + 'maze-generator/', 'index.html'),
             new Route('codepen', view, 'codepen.html'),
             new Route('sirtet', project, 'Sirtet/index.html'),
-
             new Route('steering', project, 'steering/index.html'),
-
             // new Route('coding', view, 'coding.html'),
-
-            // new Route('coding', view, 'coding.html'),
-
-            // new Route('coding', view, 'coding.html'),
-
-            // new Route('coding', view, 'coding.html'),
-
-            // new Route('coding', view, 'coding.html'),
-
-            // new Route('coding', view, 'coding.html'),
-
-            new Route('repo', view, 'repo.html')
+            // new Route('repo', view, 'repo.html')
     ], '.app');
 }
 

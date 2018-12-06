@@ -1,6 +1,7 @@
 footer {
+    position: bottom;
 	background-color: rgba(0, 0, 0, 0.8);
-	color: rgba(255, 106, 2, 0.75);
+	/* color: rgba(255, 106, 2, 0.75); */
     text-align: center;
     display: flex;
     flex-direction: column;

@@ -6,16 +6,19 @@ export default class Start {
     constructor() {
         this.scoreboard;
         this.viewport;
-        this.game;
+        this.game;        
+        this.settings = {};
     }
 
-    init() {
-        // const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        const height = h * .75;
+    init(props = this.settings) {
+
+        // this.settings.screenHeight = 200;
+        
+        this.settings.screenHeight = props.screenHeight > props.screenWidth * 2 ?  props.screenWidth * 2 : props.screenHeight;
+        this.settings.screenWidth = this.settings.screenHeight / 2;
 
         this.scoreboard = document.getElementById('scoreboard');
-        this.viewport = new Viewport(height/2, height, "sirtet-canvas");
+        this.viewport = new Viewport(this.settings.screenWidth, this.settings.screenHeight, "sirtet-canvas");
         // setupViewport();
         this.viewport.canvas.style.background = "#FFFFFF";
 
@@ -40,15 +43,15 @@ export default class Start {
         const i5 = "Press any key or 'S' to start...";
         const center = 0;
         
-        this.viewport.context.font = "1em Roboto";
-        this.viewport.context.fillText(intro, (this.viewport.canvas.width - this.viewport.context.measureText(intro).width) / 2, 80);
+        this.viewport.context.font = this.viewport.canvas.width * .1 +"px Roboto";
+        this.viewport.context.fillText(intro, (this.viewport.canvas.width - this.viewport.context.measureText(intro).width) / 2, this.viewport.canvas.height * .2);
         
-        this.viewport.context.font = ".8em Roboto";
-        this.viewport.context.fillText(i1,(this.viewport.canvas.width - this.viewport.context.measureText(i1).width) / 2,110);
-        this.viewport.context.fillText(i2,(this.viewport.canvas.width - this.viewport.context.measureText(i2).width) / 2,120);
-        this.viewport.context.fillText(i3,(this.viewport.canvas.width - this.viewport.context.measureText(i3).width) / 2,130);
-        this.viewport.context.fillText(i4,(this.viewport.canvas.width - this.viewport.context.measureText(i4).width) / 2,140);
-        this.viewport.context.fillText(i5,(this.viewport.canvas.width - this.viewport.context.measureText(i5).width) / 2,200);
+        this.viewport.context.font = this.viewport.canvas.width * .06 + "px Roboto";
+        this.viewport.context.fillText(i1,(this.viewport.canvas.width - this.viewport.context.measureText(i1).width) / 2,this.viewport.canvas.height *.3);
+        this.viewport.context.fillText(i2,(this.viewport.canvas.width - this.viewport.context.measureText(i2).width) / 2,this.viewport.canvas.height *.4);
+        this.viewport.context.fillText(i3,(this.viewport.canvas.width - this.viewport.context.measureText(i3).width) / 2,this.viewport.canvas.height *.5);
+        this.viewport.context.fillText(i4,(this.viewport.canvas.width - this.viewport.context.measureText(i4).width) / 2,this.viewport.canvas.height *.6);
+        this.viewport.context.fillText(i5,(this.viewport.canvas.width - this.viewport.context.measureText(i5).width) / 2,this.viewport.canvas.height *.7);
     }
 }
 

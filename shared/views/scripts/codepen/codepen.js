@@ -3,32 +3,41 @@ import Viewport from '../engine/Viewport.js';
 
 export default class AlgoMenu {
     constructor() {
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        this.height = h * .75;
-        this.width = this.height / 3.8 * 3;
-        this.viewport = new Viewport(this.width, this.height);
-        this.running = new L_System(this.width, this.height);
+        this.viewport;
+        this.running;
+
+        // event handling
+        this.bindPlay;
+        
+        // INITIALIZE
+        // this.viewport.init();
+        // this.running.renderer = this.viewport.context;
+
+        this.button;
+        this.settings = {};
+    }
+
+    init(props = this.settings) {
+
+        this.settings.screenHeight = props.screenHeight * .75 > props.screenWidth ?  props.screenWidth / .75 : props.screenHeight;
+        this.settings.screenWidth = this.settings.screenHeight * .75;
+
+        this.running = new L_System();
 
         // event handling
         this.bindPlay = this.running.create.bind(this.running);
+
+        // CONSTANTS TO HANDLE INPUT AND OUTPUT
+        this.button = document.querySelector(".infobox__button");
+        this.button.addEventListener('click', this.bindPlay);
+
+        this.viewport = new Viewport(this.settings.screenWidth, this.settings.screenHeight);
         
         // INITIALIZE
         this.viewport.init();
         this.running.renderer = this.viewport.context;
-
-        this.button;
-    }
-    init() {
-        // CONSTANTS TO HANDLE INPUT AND OUTPUT
-        this.button = document.getElementById("btn");
-        this.button.addEventListener('click', this.bindPlay);
-        this.viewport.refetch();
-        this.viewport.init();
-
-        // this.running = new L_System(this.width, this.height);
-        this.running.renderer = this.viewport.context;
         
-        this.running.init(this.width, this.height);
+        this.running.init(this.settings.screenWidth, this.settings.screenHeight);
 
     }
 

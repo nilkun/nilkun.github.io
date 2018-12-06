@@ -12,9 +12,7 @@ export default class TrainSimulator {
         this.bindPlay;
         this.bindDemo;
         this.bindGridSwitch;
-
-        this.screenHeight; 
-
+        this.settings = {};
     }
     currentScriptPath() {
         // get scripts
@@ -26,15 +24,17 @@ export default class TrainSimulator {
         return currentScript.replace( currentScriptFile, '' );
     }
 
-    init() {
+    init(props = this.settings) {
+        this.settings.screenHeight = props.screenHeight > props.screenWidth ?  props.screenWidth : props.screenHeight;
+        this.settings.screenWidth = this.settings.screenHeight;
 
-        this.screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)* .75;
+        console.log(this.settings.screenHeight);
         this.viewport = new Viewport;
-        this.viewport.init(this.screenHeight, this.screenHeight);
+        this.viewport.init(this.settings.screenHeight, this.settings.screenHeight);
 
         // Use 30 tiles
         this.world = new TileManager;  
-        this.world.init(this.viewport, this.screenHeight / 30);
+        this.world.init(this.viewport, this.settings.screenHeight / 30);
         this.world.render();
 
         this.bindPlay = this.startGame.bind(this);
@@ -64,7 +64,7 @@ export default class TrainSimulator {
         clearInterval(this.updateInterval);
         this.viewport.canvas.removeEventListener('mousedown', this.bindPlay);
 
-        this.world.init(this.viewport, this.screenHeight / 30);
+        this.world.init(this.viewport, this.settings.screenHeight / 30);
         this.world.setRenderContext(this.viewport.context);
         this.world.render();
         this.updateInterval = setInterval(() => this.update(), 1000/ 60);
@@ -78,11 +78,11 @@ export default class TrainSimulator {
     demoMode() {
         this.world.update();
         this.viewport.context.fillStyle = "white";
-        this.viewport.context.font = this.screenHeight/20 + "px Arial";
-        this.viewport.context.fillText("TRAIN SIMULATOR!!!", (this.screenHeight - this.viewport.context.measureText("TRAIN SIMULATOR!!!").width) / 2,
-             this.screenHeight / 3); 
-        this.viewport.context.font = this.screenHeight/20 + "px Arial";
-        this.viewport.context.fillText("click to start...", (this.screenHeight - this.viewport.context.measureText("click to start...").width) / 2, this.screenHeight/2); 
+        this.viewport.context.font = this.settings.screenHeight/20 + "px Arial";
+        this.viewport.context.fillText("TRAIN SIMULATOR!!!", (this.settings.screenHeight - this.viewport.context.measureText("TRAIN SIMULATOR!!!").width) / 2,
+             this.settings.screenHeight / 3); 
+        this.viewport.context.font = this.settings.screenHeight/20 + "px Arial";
+        this.viewport.context.fillText("click to start...", (this.settings.screenHeight - this.viewport.context.measureText("click to start...").width) / 2, this.settings.screenHeight/2); 
         this.viewport.context.stroke();   
     }
 

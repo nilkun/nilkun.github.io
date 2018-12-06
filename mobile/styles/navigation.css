@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     text-decoration: none;
     font-size: 90%;
 	background-color: black;
@@ -11,13 +11,14 @@
     color:rgba(255, 106, 2, 0.75);
     display: flex;
     justify-content: space-between;
+    z-index: 10;
 }
 
 /* MENU ROUTER LINKS */
 .hamburger-icon {
     margin: 1vh;
     padding: 1vh;
-	height: 6vh;
+	height: 4vh;
     width: auto;
     background: #222222;
     opacity: 1;
@@ -36,7 +37,7 @@
     margin:auto;
 }
 .social-image {
-    padding: 2.5vh;
+    padding: 2vh;
     justify-content: center;
-    height: 5vh;
+    height: 4vh;
 }

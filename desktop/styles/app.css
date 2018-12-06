@@ -4,7 +4,9 @@
     justify-content: center;
 	display: flex;
 	padding: 1vh;
-	margin-top: 11vh;
+    margin-top: 11vh;
+    /* background: white; */
+    /* opacity: .7; */
 }
 
 .infobox {

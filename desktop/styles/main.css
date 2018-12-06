@@ -21,5 +21,10 @@ li {
 
 a {
     text-decoration: none;
-    color: rgba(255, 106, 2, 0.75);
+	color: #cccccccc;
+	/* rgba(255, 106, 2, 0.75); */
+}
+
+.mobile {
+	display: none;
 }

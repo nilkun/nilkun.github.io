@@ -118,7 +118,6 @@ class Router {
 
         return new Promise((resolve, reject) =>  {
             while(data.substr(index, 6)==="import") {
-
                 const start = data.substr(index).match(quotes);
                 modules.push(start.index + 1);
                 index += data.substr(index + start.index + end.index).search(whitespace);
@@ -171,14 +170,14 @@ class Router {
     hasChanged() {
         const r = this.routes;
 
-        // unload function!
+
         // // IT IS NEVER UNDEFINED BECAUSE IT IS ON HASH CHANGE!!!
+        // create an unload function to clear intervals etc.
         if(program[this.routes[this.currentIndex].id] !== undefined) {
             if(program[this.routes[this.currentIndex].id].unload !== undefined) {
                 console.log("unloading...");
                 program[this.routes[this.currentIndex].id].unload();
             }
-
         }
         
         if(window.location.hash.length > 0) {
@@ -198,6 +197,8 @@ class Router {
                 }
             }
         }
+        document.querySelector('body').scrollTop = 0;
+        // toggleMenu();
     }
 
     goToRoute(link) {
@@ -215,17 +216,13 @@ class Router {
             .then(() => {
                 console.log("Wrapping up...");
                 this.routes[this.currentIndex].isLoaded = true;
-                // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML;
-                // this.rootElem.innerHTML = this.routes[this.currentIndex].innerHTML+ "<img src='./src/images/logos/empty.png' onload='console.log(\"ok\");";
-                // + "const timeout = () => {if(program[router.routes[router.currentIndex].id] === undefined) {setTimeout(timeout, 50);}";
-                // + "else {program[router.routes[router.currentIndex].id].init();}} timeout();console.log(\"ok\");this.parentNode.removeChild(this);' />"
 
                 const timeout = () => {
                     if(program[this.routes[this.currentIndex].id] === undefined) {
                         setTimeout(timeout, 50);
                     }
                     else {
-                        program[this.routes[this.currentIndex].id].init();
+                        program[this.routes[this.currentIndex].id].init(settings);
                     }
                 }
                 timeout();

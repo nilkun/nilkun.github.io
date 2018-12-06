@@ -3,21 +3,26 @@
         <title>Sirtet backwards</title>
     </head>
 
-    <body class="app">
-        <canvas id="sirtet-canvas" width="100" height="200" style="border:1px solid #000000;"></canvas>
-        <div class="infobox" >
-            <h3>Sirtet - A simple tetris clone</h3>
-            Use the arrow keys to move left/right.
-            <br>
-            Press UP to rotate.
-            <br>Press DOWN to speed up.
-            <br><br>
-            <div class="scoring"style="display: flex;">
-                <div>SCORE:&nbsp</div> 
-                <div id="scoreboard">0</div>                
+    <body class = "app">
+        <!-- <div class="desktop"> -->
+            <canvas class="canvas desktop" id="sirtet-canvas" width="100" height="200" style="border:1px solid #000000;"></canvas>
+            <div class="infobox desktop" >
+                <h3>Sirtet - A simple tetris clone</h3>
+                Use the arrow keys to move left/right.
+                <br>
+                Press UP to rotate.
+                <br>Press DOWN to speed up.
+                <br><br>
+                <div class="scoring"style="display: flex;">
+                    <div>SCORE:&nbsp</div> 
+                    <div id="scoreboard">0</div>                
+                </div>  
             </div>
-
+        <!-- </div> -->
+        <div class="mobile">
+            Sorry, this is only available on real computers with real keyboards.
         </div>
+
         <script type="module" src="./Sirtet/init.js"></script>
     </body>
 </html>

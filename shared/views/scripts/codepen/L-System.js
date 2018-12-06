@@ -1,7 +1,7 @@
 import Vector from '../engine/Vector.js';
 
 export default class L_System {
-    constructor(w, h) {
+    constructor() {
         // FOR THE L-SYSTEM
         this.axiom;
         this.sentence = "";
@@ -11,9 +11,9 @@ export default class L_System {
         // For drawing
         this.line = [];
         this.line[0] = [];
-        this.line[0][0] = new Vector(110 / 300 * w, h);
+        this.line[0][0];
 
-        this.currentLine = new Vector(0, -1);
+        this.currentLine;
         this.memoryBank = [];
         this.renderer = "";  
 
