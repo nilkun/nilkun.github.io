@@ -39,6 +39,8 @@ body {
      }
      .header {
         margin-top: 0;
+        height: auto;
+        padding-bottom: 3rem;
      }
 }
 .header__title {
