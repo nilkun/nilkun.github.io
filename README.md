@@ -1,1 +1,1 @@
-My vanilla flavored website.
+First version of new website.

@@ -1,106 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Nilkun's Corner</title>
+</head>
+<body>
+    <div class="header">
+        <div class="vert-align">
+            <div class="header__title">Nilkun's corner</div>
+            <div class="header__subtitle">Linux | Lua | C++ | Javascript</div>            
+        </div>
 
-        <script>
-            const isMobile = {
-                Android: function() {
-                    return navigator.userAgent.match(/Android/i);
-                },
-                BlackBerry: function() {
-                    return navigator.userAgent.match(/BlackBerry/i);
-                },
-                iOS: function() {
-                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-                },
-                Opera: function() {
-                    return navigator.userAgent.match(/Opera Mini/i);
-                },
-                Windows: function() {
-                    return navigator.userAgent.match(/IEMobile/i);
-                },
-                any: function() {
-                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-                }
-            };
+    </div>
+    <div class="socialmedia">
+        <a href="https://www.twitter.com/nilkun" class="socialmedia__twitter socialmedia__button">
+            <img class="socialmedia__icon" src="./twitter.svg" alt="github icon">
+        </a>
+        <a href="https://itch.io/profile/nilkun" class="socialmedia__itchio socialmedia__button">
+            <img class="socialmedia__icon" src="./itchio.svg" alt="github icon"></a>
+        <a href="https://www.codepen.io/nilkun" class="socialmedia__codepen socialmedia__button">
+            <img class="socialmedia__icon" src="./codepen.svg" alt="github icon"></a>
+        <a href="https://www.github.com/nilkun"class="socialmedia__github socialmedia__button">
+            <img class="socialmedia__icon" src="./github-icon.png" alt="github icon"></a>
 
-            const mobile = isMobile.any();
+    </div>
+    <div class="textbox">
+        <div class="textbox__title">Let's computerize!</div>
+        <div class="textbox__text">
+            Many years have passed since I got my Zenith Z-181 with two 3.5" floppy-disk drives. I spent a lot of time on it playing Space Quest and typing in BASIC games that never worked.
+            
+            <br><br>
+            This website is dedicated to everything computer-related I find amusing / amazing / interesting.
+        </div>
+    </div>
+    <div class="textbox">
+        <div class="textbox__title">Current projects</div>
+        <div class="textbox__text">
+            <div class=" textbox__text23 project">
+               <img src="./termulator2.png" alt="" class="termulator"> <b>Termulator: A terminal emulator emulator</b> (sic) for Android.
+                Control your linux box remotely over SSH. (React Native)                
+            </div><br>
 
-            if(mobile===null) {
-                window.location.replace("./desktop/index.html");
-            }
-            else {
-                // alert("Loading mobile site.");
-                window.location.replace("./mobile/index.html");
-            }
-            // FIRST CLICK ON LINK DOES NOTHING!
+            <div class="textbox__text23 project">
+           <img src="./3dengine.png" alt="" class="engine"> <b>3D engine:</b> A fun project still in an early stage. It can currently load and render OBJ files with textures. (C++, SDL2, OpenGL)               
+        </div><br>
 
-        </script>
-
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-        <link rel="stylesheet" href="./src/styles/main.css">
-        <link rel="stylesheet" href="./src/styles/app.css">
-        <link rel="stylesheet" href="./src/styles/navigation.css" />
-        <link rel="stylesheet" href="./src/styles/footer.css">
-        <title>Nilkun Online</title>
-    </head>
-    <body>
-        <div>
-        <nav id="navbar">
-            <ul id="nav-links">
-                <li><a href="#about"><strong>NILKUN</strong></a></li>
-                <li><a href="#maze">Maze Generator / A* pathfinding</a></li>
-
-                <li><a href="#steering">Steering panda</a></li>
-                <li><a href="#sirtet">Tetris clone</a></li>
-                <li><a href="#train">Train Simulator</a></li>
-                <!-- <li><a href="#train">Train Simulator</a></li> -->
-
-                <li><a href="#codepen">L-System / Turtle Graphics</a></li>
-                <!-- <li><a href="#repo">Github Repos</a></li> -->
-            </ul>
-            <div id="social-media">
-                <ul id="social-links">
-                    <li>
-                        <a href="https://www.twitter.com/nilkun"><img class="social-image" src="./src/images/logos/twitter.png" alt="Twitter" title="nilkun @ twitter" srcset=""></a>
-                    </li>
-                    <li>
-                        <a href="https://www.codepen.io/nilkun"><img class="social-image" src="./src/images/logos/codepen.png" alt="Codepen" title="nilkun @ codepen" srcset=""></a>
-                    </li>
-                    <li>
-                        <a href="https://www.github.com/nilkun"><img class="social-image" src="./src/images/logos/github.png" alt="Github" title="nilkun @ github" srcset=""></a>
-                    </li>
-                </ul>
-            </div>            
-        </nav>
-        <div class="app">Loading...</div>
-        <footer class="footer">
-            <ul id="weblinks">
-                <li>
-                    <strong>Some nice sites to visit: </strong>
-                </li>
-                <li>
-                    <a href="https://www.github.com">GitHub</a>
-                </li>
-                <li>
-                    <a href="https://www.stackoverflow.com">Stack Overflow</a>
-                </li>
-                <li>
-                    <a href="https://www.gamedev.net">GameDev</a>
-                </li>
-                <li>
-                    <a href="https://wiki.archlinux.org">ArchWiki</a>
-                </li>
-            </ul>
-            <div id="vanillaJS">This website is framework-free.</div>
-        </footer>
+            <div class="textbox__text23 project">
+            <img src="./notawful.png" alt="" class="awesome"><b>Awesome WM widgets:</b> I am always working on ways to improve my desktop environment. (Lua)               
+        </div>
+        </div>
     </div>
 
-        <script type="module" src="./src/scripts/router/router.js"></script>
-        <script type="module" src="./src/scripts/router/routerInit.js"></script>
-    </body>
-</html> 
+    <div class="textbox">
+        <div class="textbox__title">Unemployed!</div>
+        <div class="textbox__text">
+            If you are looking for a friendly and hardworking software developer with a good sense of humor, then look no further. Hire me instead! Reach out on Twitter.
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+body {
+    background-color: #ededed;
+    font-family: 'Seymour One', sans-serif;
+}
+
+/* One column including margin is 12.5%   5.333333% */
+.header {
+    /* margin-left: 255px; */
+    /* margin-right: 255px; */
+    display: flex;
+    margin-left: auto;
+
+    margin-right: auto;
+    width: 64%;
+    margin-top: 3rem;
+    background-color: #d2860a;
+    color: white;
+    height: 11rem;
+    text-align: center;
+}
+.header__title {
+
+    font-size: 3.1rem;
+    font-weight: bold;
+    letter-spacing: .5rem;
+}
+.header__subtitle {
+    font-size: 1.2rem;
+}
+
+.vert-align {
+    width: 100%;
+    margin-top: 3.35rem;
+    /* margin-bottom: auto; */
+}
+.socialmedia {
+    display: flex;
+    justify-content: center;
+
+}
+.socialmedia__button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.socialmedia__button {
+    background-color: #390ad2;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socialmedia__icon {
+    width: 60%;
+}
+.textbox {
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    width: 42.6666666667%;
+    background-color: white;
+}
+.textbox__title {
+    text-align: center;
+    font-size: 1.8rem;
+}
+.textbox__text {
+    text-align: justify;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+.textbox__text2 {
+    text-align: justify;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.2rem;
+    padding-left: 1.5rem;
+    padding:.75rem;
+}
+
+.project{
+
+    font-size: 1.2rem;
+}
+/* .project:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+} */
+
+.termulator {
+    float: left;
+    height: 4rem;
+    margin: .5rem;
+}
+.engine {
+    float: left;
+    height: 4rem;
+    margin: .5rem;
+}
+.awesome {
+    float: left;
+    height: 4rem;
+    margin: .5rem;
+}
