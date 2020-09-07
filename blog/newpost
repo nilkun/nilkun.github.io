@@ -1,0 +1,4 @@
+echo "tiny tiny blog by nilkun..."
+CURRENTTIME=$(date +%s)
+vim $CURRENTTIME
+

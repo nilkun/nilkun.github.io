@@ -1,0 +1,14 @@
+ALLENTRIES=$(ls -1 entries)
+
+for item in $ALLENTRIES
+do
+	TITLE=$(cat entries/$item | sed -n 1p)
+	TAGS=$(cat entries/$item | sed -n 2p)
+	FINAL=$FINAL",\n\t{ \"id\":  ${item}, \"title\": \"$TITLE\", \"tags\": \"$TAGS\" }"
+done
+
+echo -e "[$FINAL\n]" | sed '0,/,/s///' > blogposts.json
+
+git add .
+git commit -m"Updated blog..."
+git push

@@ -1,0 +1,5 @@
+Tiny tiny blog in action
+#vim #linux #javascript
+<img src="blog/resources/pixel.png" />
+Tiny tiny blog makes it super-easy for you to add a blog to your website! Just fire up the newpost script, and you are in vim, ready to write whatever you want - in plain text or html. When you're finished, just run the updateblog script, which automatically creates a metadata file and uploads everything to your favorite git repository.
+<BR><BR>This is the first blogpost ever published with tiny tiny blog - a link to the repo will be added soon.
