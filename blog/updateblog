@@ -9,6 +9,6 @@ done
 
 echo -e "[$FINAL\n]" | sed '0,/,/s///' > blogposts.json
 
-git add .
+git add.
 git commit -m"Updated blog..."
 git push
