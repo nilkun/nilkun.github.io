@@ -1,14 +1,33 @@
-ALLENTRIES=$(ls -1 entries)
-
-for item in $ALLENTRIES
-do
-	TITLE=$(cat entries/$item | sed -n 1p)
-	TAGS=$(cat entries/$item | sed -n 2p)
-	FINAL=$FINAL",\n\t{ \"id\":  ${item}, \"title\": \"$TITLE\", \"tags\": \"$TAGS\" }"
+while true; do
+	read -p "Update metadata? " yn
+	case $yn in 
+		[Yy]* ) 			
+			ALLENTRIES=$(ls -1 entries)
+	
+			for item in $ALLENTRIES
+			do
+				TITLE=$(cat entries/$item | sed -n 1p)
+				TAGS=$(cat entries/$item | sed -n 2p)
+				FINAL=$FINAL",\n\t{ \"id\":  ${item}, \"title\": \"$TITLE\", \"tags\": \"$TAGS\" }"
+			done
+		echo -e "[$FINAL\n]" | sed '0,/,/s///' > blogposts.json
+		break;;
+		[Nn]* ) break;;
+		* ) echo "Yes or no!";;
+	esac	
 done
 
-echo -e "[$FINAL\n]" | sed '0,/,/s///' > blogposts.json
+echo "Publish new posts? (y/n)"
+cfg_tmp=$(stty -g)
+stty raw -echo
+answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+stty $cfg_tmp
+if echo "$answer" | grep -iq "^y" ;then
+	echo "YES!"
+else
+	echo "NONONO!"
+fi
 
-git add.
-git commit -m"Updated blog..."
-git push
+# git add.
+# git commit -m"Updated blog..."
+# git push
