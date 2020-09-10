@@ -1,0 +1,21 @@
+.socialmedia {
+    display: flex;
+	margin-top: 1.5rem;
+    justify-content: center;
+}
+.socialmedia__button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+.socialmedia__button {
+    background-color: #390ad2;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socialmedia__icon {
+    width: 60%;
+}

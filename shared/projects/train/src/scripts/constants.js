@@ -1,1 +1,0 @@
-export const PATH ="/shared/projects/train/";

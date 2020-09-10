@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/socialmedia.css">
+	<link rel="stylesheet" href="blog/css/style.css">
     <title>Nilkun's Corner</title>
 </head>
 <body>
     <div class="header">
         <div class="vert-align">
 			<div class="header__title">Nilkun's corner</div>
-			<div class='subpages'>
+			<div class='subpage_container'>
 				<div class='subpage'>Linux</div>
 				<div class='subpage'>Lua</div>
 				<div class='subpage'>JavaScript</div>
@@ -22,49 +24,22 @@
 			</div>
 		</div>
     </div>
-	<div class="" id='tinytinyblog'></div>
-	<div class="textbox">
-		<div class="textbox__title">Let's computerize!</div>
-		<div class="textbox__text">
-			<div class="project clearfix">
-				<img src="./newme.png" class="pixelart" /> 
-				<b>Welcome</b>
-				<br>Many years have passed since I got my Zenith Z-180 with two 3.5" floppy-disk drives. I spent a lot of time on it playing Space Quest and typing in BASIC games that never worked.
-			</div>
-		</div>
-    </div>
-	</div>
-    <div class="textbox">
-        <div class="textbox__title">Old projects</div>
-        <div class="textbox__text">
-            <div class="project">
-               <img src="./termulator2.png" alt="termulator screenshot" class="textbox__image"> <b>Termulator: A terminal emulator emulator (sic) for Android</b><br>
-                Control your linux box remotely over SSH. (React Native)                
-            </div><br>
-
-            <div class="project">
-           <img src="./3dengine.png" alt="3d engine screenshot" class="textbox__image"> <b>3D engine</b><br> A fun project still in an early stage. It can currently load and render OBJ files with textures. (C++, SDL2, OpenGL)               
-        </div><br>
-
-            <div class="project">
-            <img src="./notawful.png" alt="desktop screenshot" class="textbox__image"><b>Awesome WM widgets</b><br> I am always working on ways to improve my desktop environment. (Lua)               
-        </div>
-        </div>
-    </div>
+	<div id='tinytinytag_container'></div>
+	<div id='tinytinyblog'></div>
 	<footer>
 		<!-- <div class="header__subtitle">Linux | Lua | C++ | Javascript</div>          -->
 			<div class="socialmedia">
 			<a href="https://www.twitter.com/nilkun" class="socialmedia__twitter socialmedia__button">
-			<img class="socialmedia__icon" src="./twitter.svg" alt="github icon">
+			<img class="socialmedia__icon" src="./resources/twitter.svg" alt="github icon">
 			</a>
 			<a href="https://itch.io/profile/nilkun" class="socialmedia__itchio socialmedia__button">
-			<img class="socialmedia__icon" src="./itchio.svg" alt="github icon"></a>
+			<img class="socialmedia__icon" src="./resources/itchio.svg" alt="github icon"></a>
 			<a href="https://www.codepen.io/nilkun" class="socialmedia__codepen socialmedia__button">
-			<img class="socialmedia__icon" src="./codepen.svg" alt="github icon"></a>
+			<img class="socialmedia__icon" src="./resources/codepen.svg" alt="github icon"></a>
 			<a href="https://www.github.com/nilkun"class="socialmedia__github socialmedia__button">
-			<img class="socialmedia__icon" src="./github-icon.png" alt="github icon"></a>
+			<img class="socialmedia__icon" src="./resources/github-icon.png" alt="github icon"></a>
 			</div>
 	</footer>
-	<script src="./script.js"></script>
+	<script src="./blog/scripts/tinytinyblog.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 Old projects
 #android #react #sdl2 #c++ #openGL #Lua #AwesomeWM
 <b>Termulator: A terminal emulator emulator (sic) for Android</b>
-<img src="./termulator2.png" alt="termulator screenshot" class="large">
+<img src="./blog/resources/termulator.png" alt="termulator screenshot" class="large">
 <br>Control your linux box remotely over SSH. (React Native)                
 <br>
 <br>
 <b>3D engine</b>
-<img src="./3dengine.png" alt="3d engine screenshot" class="large">
+<img src="./blog/resources/3dengine.png" alt="3d engine screenshot" class="large">
 <br>A fun project still in an early stage. It can currently load and render OBJ files with textures. (C++, SDL2, OpenGL)               
 <br>
 <br>
 <b>Awesome WM widgets</b>
-<img src="./notawful.png" alt="desktop screenshot" class="large">
+<img src="./blog/resources/notawful.png" alt="desktop screenshot" class="large">
 <br>I am always working on ways to improve my desktop environment. (Lua)               
