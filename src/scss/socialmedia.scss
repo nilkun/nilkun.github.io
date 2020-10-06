@@ -1,0 +1,27 @@
+$color1: #ee6235;
+$color2: #9b3000;
+$color3: #c4450b;
+$color4: #fd8650;
+$color5: #ffa379;
+
+.socialmedia {
+    display: flex;
+	margin-top: 1.5rem;
+    justify-content: center;
+}
+.socialmedia__button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+.socialmedia__button {
+    background-color: $color5;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socialmedia__icon {
+    width: 60%;
+}

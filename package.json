@@ -1,0 +1,15 @@
+{
+  "comments": {
+	"ok": "everything is set"
+  },	  
+  "name": "nilkun-website",
+  "version": "1.0.0",
+  "description": "Home of Nilkun and Tiny tiny studio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "npx live-server & sass --watch src/scss:public/stylesheets"
+  },
+  "author": "nilkun",
+  "license": "ISC"
+}
