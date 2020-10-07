@@ -3,10 +3,12 @@ $color2: #9b3000;
 $color3: #c4450b;
 $color4: #fd8650;
 $color5: #ffa379;
+$color-light: #F28654;
 
 .socialmedia {
     display: flex;
 	margin-top: 1.5rem;
+	margin-bottom: 3rem;
     justify-content: center;
 }
 .socialmedia__button:hover {
@@ -14,7 +16,7 @@ $color5: #ffa379;
     cursor: pointer;
 }
 .socialmedia__button {
-    background-color: $color5;
+    background-color: $color-light;
     width: 4.5rem;
     height: 4.5rem;
     margin: 1.5rem;

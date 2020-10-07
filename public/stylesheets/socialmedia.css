@@ -1,6 +1,7 @@
 .socialmedia {
   display: flex;
   margin-top: 1.5rem;
+  margin-bottom: 3rem;
   justify-content: center;
 }
 
@@ -10,7 +11,7 @@
 }
 
 .socialmedia__button {
-  background-color: #ffa379;
+  background-color: #F28654;
   width: 4.5rem;
   height: 4.5rem;
   margin: 1.5rem;
