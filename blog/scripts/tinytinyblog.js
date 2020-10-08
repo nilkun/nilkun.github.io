@@ -85,7 +85,11 @@ const getNext = id => {
 }
 const createElements = async posts => {
 	container.innerHTML ="";
-	if(posts.length===0) return;
+	if(posts.length===0) {
+		container.style.display = "none";
+		return;
+	}
+	container.style.display = "";
 	posts[0].id ? posts.sort((a, b)=> b.id - a.id) : posts.sort((a, b)=> b - a);
 	for(let i = 0; i < posts.length; i++) {
 		const id = posts[i].id ? posts[i].id : posts[i];
