@@ -4,7 +4,7 @@ $color3: #c4450b;
 $color4: #fd8650;
 $color5: #ffa379;
 $color-light: #F28654;
-$color-bg: white;
+$color-bg: black;
 * {
     margin: 0;
     padding: 0;
@@ -22,17 +22,50 @@ body {
     display: flex;
     width: 100%;
     margin-top: 3rem;
-	background-color: white;
-	color: #fafafa;
-	padding: 3rem;
-    text-align: center;
+	// background-color: $color-bg;
+	// color: #fafafa;
+	// font-size: 53rem;
+	color: #aaaaaa;
+	// padding: 3rem;
+	&__circle {
+		background-color: #333333;
+		width: 20rem;
+		height: 20rem;
+		border-radius: 100rem;
+			overflow: hidden;
+		& > img { 
+			height: 20rem;	
+		width: 20rem; 
+		};
+	};
+	&__tiny {
+		font-size: 6rem;
+		padding-left: 4rem;
+		// background-color: blue;
+		// height: 20rem;
+		// padding: auto;
+		// margin-bottom: 2rem;
+	};
+	&__intro {
+	  font-family: 'Source Code Pro', monospace;
+	  font-size: 2rem;
+	  text-align: center;
+	  padding: 2rem;
+	}
 }
 .header__title {
-    font-size: 5rem;
-	margin-bottom: 3rem;
-    font-weight: bold;
-    letter-spacing: .5rem;
-	-webkit-text-stroke: 3px #611;
+    // font-size: 5rem;
+	// margin-bottom: 3rem;
+    // font-weight: bold;
+    // letter-spacing: .5rem;
+	// -webkit-text-stroke: 3px #611;
+	width: 100%;
+	// background-color: red;
+	display: flex;
+    text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
 }
 @media only screen and (orientation: portrait) {
 	.header__tiny img {

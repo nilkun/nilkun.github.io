@@ -4,6 +4,7 @@ $color3: #c4450b;
 $color4: #fd8650;
 $color5: #ffa379;
 $color-light: #F28654;
+$color-bg: #000000;
 
 .socialmedia {
     display: flex;
@@ -16,7 +17,7 @@ $color-light: #F28654;
     cursor: pointer;
 }
 .socialmedia__button {
-    background-color: $color-light;
+    background-color: $color-bg;
     width: 4.5rem;
     height: 4.5rem;
     margin: 1.5rem;

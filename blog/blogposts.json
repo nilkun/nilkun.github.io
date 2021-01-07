@@ -1,5 +1,6 @@
 [
 	{ "id":  1596874088, "title": "Let's computerize!", "tags": "#basic #retro" },
 	{ "id":  1599222222, "title": "Old projects", "tags": "#android #react #sdl2 #c++ #openGL #Lua #AwesomeWM" },
-	{ "id":  1599484927, "title": "Tiny tiny blog in action", "tags": "#vim #linux #javascript" }
+	{ "id":  1599484927, "title": "Tiny tiny blog in action", "tags": "#vim #linux #javascript" },
+	{ "id":  1609998496, "title": "The perfect keyboard setup", "tags": "#linux #xmonad #vim" }
 ]
