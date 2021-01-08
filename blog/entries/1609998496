@@ -1,24 +1,31 @@
 The perfect keyboard setup
 #linux #xmonad #vim #tmux
 <img src="./blog/resources/keyboard.png" alt="a 64 key keyboard" class="large">
-<b>64 > 104</b>
-<br>I love this keyboard. It only has 64 keys. But there are still many keys on the keyboard that I never use. So I redefined those keys to improve my workflow. 
-<br>
-<br>Take "caps-lock" for instance, it is a completely useless key taking up a great spot on the keyboard. So what I did was redefine left-shift + right-shift to be caps-lock, and the caps-lock key is defined as Escape, which I use very frequently in vim. 
-<br>
-<br>The "menu" key, I use for switching between workspaces, and "space-3" (I think that is its proper name) is redefined to λ. Why λ? Well, one keypress is better than two, so instead of having to press "ctrl-b" when using tmux, I just set my prefix key to λ. Efficiency doubled!
-<br><br>
-<b>xev</b>
-<br>In order to redefine keys, we first need to find their values. The easiest way is to use xev. Run xev and then remember the keycode. In order to simplify the process, you could pipe it through awk like this: 
-<br><code>xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'</code>
-<br><br>
-<b>xmodmap</b>
-<br>
-<br>
-The next step is redefining the keys. I recommend making a configuration file and then starting it with X.
-<br><code>!keybindings.conf<br>
-	keycode 171 = Greek_LAMDA
-	keycode 135 = backslash
-</code><br>
-Then load the configuration file with <code>xmodmap keybindings.conf</code>
 
+<b>64 > 104</b>
+<br>I love this keyboard. Although it only has 64 keys, I don't use all of them. So I remapped those keys (and some other as well) to improve my workflow. 
+<br>
+<br>Take <i>caps-lock</i> for instance. For me, it is a completely useless key taking up a great spot on the keyboard. Since I'm an avid vim user, I often use <i>escape</i>. So I remapped <i>left-shift</i> + <i>right-shift</i> to <i>caps-lock</i>, and <i>caps-lock</i> to <i>escape</i>. 
+<br>
+<br>I use <i>menu</i> to switch between my two most commonly used workspaces, and <i>space-2</i> (That is my right space bar) is remapped to <i>λ</i>. Why <i>λ</i>? Well, one keypress is better than two, so instead of having to press <i>ctrl-b</i> when using tmux, I just set my prefix key to λ. Efficiency doubled!
+
+<br>
+<br><b>How to remap keys in X</b>
+<br>In order to remap keys, we first need to find their values. The easiest way is to run <i>xev</i>. In order to simplify this process, you could pipe it to <i>awk</i> like this:
+<br><code>
+xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+</code>
+
+<br>
+<br>The next step is to actually remap the keys. I recommend making a configuration file and then starting it with X. This small sample configuration file changes <i>right-space</i> to <i>λ</i>, and <i>;</i> to <i>;</i> (no modkey), <i>+</i> (with Shift), <i>ö</i> (with AltGr), Ö (Shift + AltGr).
+<br><code>
+!keybindings.conf
+<br>
+keycode 171 = Greek_LAMDA
+<br>
+keycode  47 = semicolon plus odiaeresis Odiaeresis
+</code>
+
+<br>
+<br>
+Then load the configuration file with <code>xmodmap keybindings.conf</code>
